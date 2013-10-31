@@ -1,8 +1,33 @@
 <!DOCTYPE HTML>
-<html>
-<head>
-  <script src="/static/assets/javascripts/bower/angular/angular.js"></script>
-  <title><%= content_for(:title) || "Title" %></title>
-</head>
-<body><%= content_for(:template) %></body>
+<html ng-app="tourPlanner">
+  <head>
+    <link rel="stylesheet" type="text/css" href="/static/assets/stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/stylesheets/application.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/static/assets/stylesheets/bootstrap-theme.css"> -->
+    <script src="/static/assets/bower/angular/angular.js"></script>
+    <script src="/static/assets/javascripts/tourPlanner.js"></script>
+    <script src="/static/assets/javascripts/routes_controller.js"></script>
+    <title><%= content_for(:title) || "Title" %></title>
+  </head>
+  <body>
+    <!-- nav -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Tour Planner</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/routes">Routes</a></li>
+            <li><a href="/resources">Resources</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- content -->
+    <div class="container">
+      <%= content_for(:template) %>
+    </div>
+  </body>
 </html>
