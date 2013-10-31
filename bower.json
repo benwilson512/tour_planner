@@ -1,0 +1,19 @@
+{
+  "name": "tour_planner2",
+  "version": "0.0.0",
+  "authors": [
+    "Ben Wilson <benwilson512@gmail.com>"
+  ],
+  "dependencies": {
+    "angular": "*"
+  },
+  "description": "cycle tour app",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

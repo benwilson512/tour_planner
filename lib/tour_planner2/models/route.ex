@@ -12,8 +12,18 @@ defmodule Route do
     field :distance,  :string
   end
 
+  # This should totally be dynamic but I'm lazy
+  # right now. Frankly Ecto should make this easy
+  # FIXME
   def attributes(route) do
-    
+    [
+      name:       route.name(),
+      start:      route.start(),
+      finish:     route.finish(),
+      mode:       route.mode(),
+      waypoints:  route.waypoints(),
+      distance:   route.distance()
+    ]
   end
 
   def steps_every_n_distance(route, max_dist) do

@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>Title</title>
+  <script src="/static/assets/javascripts/bower/angular/angular.js"></script>
+  <title><%= content_for(:title) || "Title" %></title>
 </head>
 <body><%= content_for(:template) %></body>
 </html>
