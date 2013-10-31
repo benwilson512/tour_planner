@@ -1,11 +1,5 @@
 defmodule GMaps.Resources do
-
-  def test do
-    l = Step |> Repo.first
-    get_nearby([l], ["food", "lodging"], 16000)
-  end
-
-  def get_nearby(locations, types, radius // 16000) do
+  def get_nearby(locations, types, radius // 16_000) do
     IO.puts "Retrieving resources near #{Enum.count(locations)} locations"
     locations
       |> Stream.map(&get_resources(&1, types, radius))

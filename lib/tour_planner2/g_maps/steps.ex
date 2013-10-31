@@ -13,7 +13,7 @@ defmodule GMaps.Steps do
     response = route
       |> get_params
       |> URI.encode_query
-      |> GMaps.Directions.get([], [timeout: 30000])  
+      |> GMaps.Directions.get([], [timeout: 30_000])
     response.body
   end
 
