@@ -2,7 +2,7 @@
   "dynamo": {:git, "git://github.com/elixir-lang/dynamo.git", "162444c02fcf7d8aa1c65dcd36d02fd2e2450a24", []},
   "ecto": {:git, "git://github.com/elixir-lang/ecto.git", "aa964d368f364cde48b0f216836bc1f9eb43b9d7", []},
   "hackney": {:git, "git://github.com/benoitc/hackney.git", "5b0f7eb949ebebd6fabfbc4e08a7b7231850606a", []},
-  "httpotion": {:git, "git://github.com/myfreeweb/httpotion.git", "b688c3342f58e32e10f3caa092225b5c8c26eb8b", []},
+  "httpotion": {:git, "git://github.com/benwilson512/httpotion.git", "aef7ac4107a9af2336ae355a7fff12fda359a96b", [{:branch, "master"}]},
   "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "2e13b63788f48934ab9b075b9d741bfa814d0d6d", []},
   "jsonex": {:git, "git://github.com/marcelog/jsonex.git", "feb4a5b8fbb62e3910923a4325795576fa014c34", []},
   "jsx": {:git, "git://github.com/talentdeficit/jsx.git", "cb14b92a228e51f7bdcaa7eb17f035e4a5c0b47d", [{:tag, "v1.3.3"}]},

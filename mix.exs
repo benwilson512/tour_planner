@@ -22,7 +22,7 @@ defmodule TourPlanner2.Mixfile do
       { :dynamo, "0.1.0-dev", github: "elixir-lang/dynamo" },
       { :postgrex, github: "ericmj/postgrex" },
       { :ecto, github: "elixir-lang/ecto" },
-      { :httpotion, github: "myfreeweb/httpotion"},
+      { :httpotion, github: "benwilson512/httpotion", branch: "master"},
       { :jsonex, github: "marcelog/jsonex" }
     ]
   end
