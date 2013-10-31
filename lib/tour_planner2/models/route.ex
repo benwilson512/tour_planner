@@ -16,14 +16,10 @@ defmodule Route do
   # right now. Frankly Ecto should make this easy
   # FIXME
   def attributes(route) do
-    [
-      name:       route.name(),
-      start:      route.start(),
-      finish:     route.finish(),
-      mode:       route.mode(),
-      waypoints:  route.waypoints(),
-      distance:   route.distance()
-    ]
+    fields |> Enum.map(&{&1, apply(__MODULE__.Entity, &1, [route])})
+  end
+  def fields do
+    __MODULE__.Entity.__entity__(:field_names)
   end
 
   def steps_every_n_distance(route, max_dist // 50_000) do

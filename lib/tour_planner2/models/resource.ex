@@ -18,9 +18,11 @@ defmodule Resource do
   # This should totally be dynamic but I'm lazy
   # right now. Frankly Ecto should make this easy
   # FIXME
-  def attributes(record) do
-    [
-    ]
+  def attributes(route) do
+    fields |> Enum.map(&{&1, apply(__MODULE__.Entity, &1, [route])})
+  end
+  def fields do
+    __MODULE__.Entity.__entity__(:field_names)
   end
 
   def from_json(json) do
