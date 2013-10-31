@@ -1,10 +1,7 @@
-tourPlanner.controller('RoutesListCtrl', function RoutesListCtrl($scope) {
-  $scope.routes = [
-    {'name': 'Nexus S',
-     'snippet': 'Fast just got faster with Nexus S.'},
-    {'name': 'Motorola XOOM™ with Wi-Fi',
-     'snippet': 'The Next, Next Generation tablet.'},
-    {'name': 'MOTOROLA XOOM™',
-     'snippet': 'The Next, Next Generation tablet.'}
-  ];
-});
+tourPlanner.controller('RoutesListCtrl', ['$scope', '$http',
+  function RoutesListCtrl($scope, $http) {
+  $http.get('routes.json').success(function(data) {
+    console.log(data)
+    $scope.routes = data;
+  });
+}]);

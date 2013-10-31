@@ -3,11 +3,10 @@
   <head>
     <link rel="stylesheet" type="text/css" href="/static/assets/stylesheets/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/static/assets/stylesheets/application.css">
-    <!-- <link rel="stylesheet" type="text/css" href="/static/assets/stylesheets/bootstrap-theme.css"> -->
+
     <script src="/static/assets/bower/angular/angular.js"></script>
     <script src="/static/assets/javascripts/tourPlanner.js"></script>
-    <script src="/static/assets/javascripts/routes_controller.js"></script>
-    <title><%= content_for(:title) || "Title" %></title>
+    <title><%= content_for(:title) || @title || "Tour Planner" %></title>
   </head>
   <body>
     <!-- nav -->
@@ -24,10 +23,14 @@
         </div>
       </div>
     </div>
-    
+
     <!-- content -->
     <div class="container">
       <%= content_for(:template) %>
+    </div>
+
+    <div>
+    <%= content_for(:scripts) %>
     </div>
   </body>
 </html>

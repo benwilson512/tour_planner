@@ -1,9 +1,12 @@
-
-<h1><%= @title %></h1>
+<h1>Routes</h1>
 <div ng-controller="RoutesListCtrl">
   <ul>
     <li ng-repeat="route in routes">
-      {{route.name}}
+      {{route.start}} to {{route.finish}}
     </li>
   </ul>
 </div>
+
+<% content_for :scripts do %>
+  <script src="/static/assets/javascripts/routes_controller.js"></script>
+<% end %>
