@@ -22,6 +22,19 @@ defmodule RoutesRouter do
     render conn, "routes/show.html"
   end
 
+  get "/:id/json" do
+    Route
+      |> Repo.get(conn.params(:id))
+      |> Route.attributes
+      |> json_safe
+      |> Jsonex.encode
+      |> conn.resp_body
+  end
+
+  get "/:id/steps/important/json" do
+
+  end
+
   # Jsonex can't handle nil values. yay.
   # This will get moved somewhere better
   # later. FIXME

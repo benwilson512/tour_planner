@@ -26,7 +26,7 @@ defmodule Route do
     ]
   end
 
-  def steps_every_n_distance(route, max_dist) do
+  def steps_every_n_distance(route, max_dist // 50_000) do
     route.steps
       |> Repo.all
       |> filter_steps(max_dist, [], 0)
