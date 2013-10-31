@@ -16,6 +16,12 @@ defmodule RoutesRouter do
     render conn, "routes/index.html"
   end
 
+  get "/:id" do
+    route = Repo.get(Route, conn.params(:id))
+    conn = conn.assign(:route, route)
+    render conn, "routes/show.html"
+  end
+
   # Jsonex can't handle nil values. yay.
   # This will get moved somewhere better
   # later. FIXME
