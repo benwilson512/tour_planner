@@ -10,6 +10,8 @@ defmodule Step do
     field :end_lon,       :float
     field :distance,      :integer
     field :instructions,  :string
+    field :created_at,    :datetime
+    field :updated_at,    :datetime
   end
 
   # This should totally be dynamic but I'm lazy
@@ -26,7 +28,7 @@ defmodule Step do
     ]
   end
 
-  def create_from_json(json) do
+  def from_json(json) do
     Step.new(
       start_lat:    json["start_location"]["lat"],
       start_lon:    json["start_location"]["lng"],
@@ -36,8 +38,8 @@ defmodule Step do
       distance:     json["distance"]["value"]
     )
   end
-  def create_from_json(json, route) do
-    step = create_from_json(json)
+  def from_json(json, route) do
+    step = from_json(json)
     if route.id do
       route.id |> step.route_id
     end

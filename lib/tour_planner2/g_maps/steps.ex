@@ -4,8 +4,9 @@ defmodule GMaps.Steps do
     route
       |> get_directions
       |> parse_json
-      |> Enum.map(&Step.create_from_json(&1, route))
+      |> Enum.map(&Step.from_json(&1, route))
       |> Enum.map(&Repo.create(&1))
+    route
   end
 
   def get_directions(route) do
