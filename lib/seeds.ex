@@ -2,6 +2,7 @@ defmodule Repo.Seeds do
   def run do
     reset_everything
     Route.new(
+      name:       "Route",
       start:      "New York City, NY",
       finish:     "Portland,OR",
       waypoints:  "Chicago,IL",
