@@ -12,6 +12,17 @@ defmodule Step do
     field :instructions,  :string
   end
 
+  def attributes(record) do
+    [
+      start_lat: record.start_lat(),
+      start_lon: record.start_lon(),
+      end_lat: record.end_lat(),
+      end_lon: record.end_lon(),
+      distance: record.distance(),
+      instructions: record.instructions()
+    ]
+  end
+
   def create_from_json(json) do
     Step.new(
       start_lat:    json["start_location"]["lat"],

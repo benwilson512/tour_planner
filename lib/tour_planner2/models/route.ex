@@ -7,43 +7,29 @@ defmodule Route do
     field :name,      :string
     field :start,     :string
     field :finish,    :string
-    field :mode,    :string
+    field :mode,      :string
     field :waypoints, :string
     field :distance,  :string
   end
 
-  def get_steps(route) do
-    route
-      |> get_directions
-      |> parse_json
-      |> Enum.map(&Step.create_from_json(&1, route))
-      |> Enum.map(&Repo.create(&1))
+  def attributes(route) do
+    
   end
 
-  def get_directions(route) do
-    response = route
-      |> get_params
-      |> URI.encode_query
-      |> GMaps.Directions.get([], [timeout: 30000])  
-    response.body
+  def steps_every_n_distance(route, max_dist) do
+    route.steps
+      |> Repo.all
+      |> filter_steps(max_dist, [], 0)
   end
 
-  def parse_json(json) do
-    json
-      |> ListDict.get("routes")
-      |> Enum.first
-      |> ListDict.get("legs")
-      |> Enum.reduce [], fn (leg, steps) -> steps ++ ListDict.get(leg, "steps") end
-  end
+  defp filter_steps([], _max_dist, keep, _), do: keep
 
-  def get_params(route) do
-    [
-      origin:      route.start,
-      destination: route.finish,
-      waypoints:   route |> waypoints_list,
-      mode:        route.mode,
-      sensor:      false
-    ]
+  defp filter_steps([step | steps], max_dist, keep, dist_traveled) do
+    if step.distance >= max_dist || dist_traveled > max_dist do
+      filter_steps(steps, max_dist, [step | keep], 0)
+    else
+      filter_steps(steps, max_dist, keep, step.distance + dist_traveled)
+    end
   end
 
   def waypoints_list(route) do
