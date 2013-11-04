@@ -1,5 +1,6 @@
 defmodule Resource do
   use Ecto.Model
+  use TourPlanner.Model
 
   queryable "resources" do
     field :google_id,   :string
@@ -15,31 +16,4 @@ defmodule Resource do
     field :updated_at,  :datetime
   end
 
-  # This should totally be dynamic but I'm lazy
-  # right now. Frankly Ecto should make this easy
-  # FIXME
-  def attributes(route) do
-    fields |> Enum.map(&{&1, apply(__MODULE__.Entity, &1, [route])})
-  end
-  def fields do
-    __MODULE__.Entity.__entity__(:field_names)
-  end
-
-  def from_json(json) do
-    rating = json["rating"]
-    if rating != nil do
-      rating = rating / 1.0
-    end
-    Resource.new(
-      google_id:   json["id"],
-      places_ref:  json["reference"],
-      name:        json["name"],
-      address:     json["vicinity"],
-      lat:         json["geometry"]["location"]["lat"] / 1.0,
-      lon:         json["geometry"]["location"]["lng"] / 1.0,
-      price_level: json["price_level"],
-      rating:      rating,
-      types:       json["types"] |> Enum.join("|")
-    )
-  end
 end

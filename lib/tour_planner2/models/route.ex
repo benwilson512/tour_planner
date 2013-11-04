@@ -1,5 +1,6 @@
 defmodule Route do
   use Ecto.Model
+  use TourPlanner.Model
 
   queryable "routes" do
     has_many :steps, Step
@@ -10,16 +11,6 @@ defmodule Route do
     field :mode,      :string
     field :waypoints, :string
     field :distance,  :string
-  end
-
-  # This should totally be dynamic but I'm lazy
-  # right now. Frankly Ecto should make this easy
-  # FIXME
-  def attributes(route) do
-    fields |> Enum.map(&{&1, apply(__MODULE__.Entity, &1, [route])})
-  end
-  def fields do
-    __MODULE__.Entity.__entity__(:field_names)
   end
 
   def steps_every_n_distance(route, max_dist // 50_000) do

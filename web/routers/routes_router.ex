@@ -1,13 +1,11 @@
 defmodule RoutesRouter do
   use Dynamo.Router
 
-  get "/routes.json" do
+  get "/json" do
     conn = conn.resp_content_type("application/json")
     Route
       |> Repo.all
-      |> Enum.map(&Route.attributes(&1))
-      |> Enum.map(&json_safe(&1))
-      |> Jsonex.encode
+      |> Route.to_json
       |> conn.resp_body
   end
 
