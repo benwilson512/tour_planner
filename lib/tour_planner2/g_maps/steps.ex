@@ -4,7 +4,8 @@ defmodule GMaps.Steps do
     route
       |> get_directions
       |> parse_json
-      |> Enum.map(&Step.from_json(&1, route))
+      |> Enum.map(&Step.from_json(&1))
+      |> Enum.map(fn(step) -> step.route_id(route.id) end)
       |> Enum.map(&Repo.create(&1))
     route
   end

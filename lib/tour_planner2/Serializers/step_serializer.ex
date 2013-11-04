@@ -12,11 +12,4 @@ defmodule Step.Serializer do
     )
   end
 
-  def from_json(json, route) do
-    step = from_json(json)
-    if route.id do
-      route.id |> step.route_id
-    end
-  end
-
 end

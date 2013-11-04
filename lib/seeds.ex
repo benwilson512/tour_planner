@@ -11,7 +11,7 @@ defmodule Repo.Seeds do
       |> GMaps.Steps.get
 
     route
-      |> Route.steps_every_n_distance(50000)
+      |> Route.important_steps(50000)
       |> GMaps.Resources.get_nearby(["food"])
   end
 

@@ -7,7 +7,7 @@ defmodule GMaps.Resources do
   end
 
   def get_resources(location, types, radius) do
-    IO.puts "."
+    IO.write "."
     location
       |> get_params(types, radius)
       |> URI.encode_query

@@ -20,8 +20,8 @@ defmodule TourPlanner2.Mixfile do
   defp deps do
     [ { :cowboy, github: "extend/cowboy" },
       { :dynamo, "0.1.0-dev", github: "elixir-lang/dynamo" },
-      { :postgrex, github: "ericmj/postgrex" },
-      { :ecto, github: "elixir-lang/ecto" },
+      { :postgrex, github: "ericmj/postgrex", branch: "master" },
+      { :ecto, github: "elixir-lang/ecto", branch: "master" },
       { :httpotion, github: "benwilson512/httpotion", branch: "master"},
       { :jsonex, github: "marcelog/jsonex" }
     ]

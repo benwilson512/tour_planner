@@ -12,6 +12,6 @@ defmodule Repo.Migrations.UpdatedAtFunction do
   end
 
   def down do
-    ""
+    "DROP FUNCTION update_at_column;"
   end
 end
