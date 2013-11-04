@@ -1,6 +1,6 @@
 defmodule Step do
   use Ecto.Model
-  use Model.Attributes
+  use TourPlanner.Model
 
   queryable "steps" do
     belongs_to :route, Route
