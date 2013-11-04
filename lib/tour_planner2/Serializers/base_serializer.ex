@@ -18,14 +18,10 @@ defmodule Base.Serializer do
     end
   end
 
-
   def json_safe(attrs) do
-    attrs |> Enum.map(fn {key, value} ->
-      if value do
-        {key, value}
-      else
-        {key, ""}
-      end
+    attrs |> Enum.map(fn
+      {key, nil}   -> {key, ""}
+      {key, value} -> {key, value}
     end)
   end
 end

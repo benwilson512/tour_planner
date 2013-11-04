@@ -13,8 +13,8 @@ defmodule Repo.Migrations.CreateResources do
       price_level   integer,
       rating        float,
       types         text,
-      created_at    timestamp,
-      updated_at    timestamp
+      updated_at    timestamp,
+      created_at    timestamp DEFAULT LOCALTIMESTAMP
     );"
   end
 

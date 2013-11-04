@@ -11,8 +11,8 @@ defmodule Repo.Migrations.CreateSteps do
       start_lon     float,
       end_lat       float,
       end_lon       float,
-      created_at    timestamp,
-      updated_at    timestamp
+      updated_at    timestamp,
+      created_at    timestamp DEFAULT LOCALTIMESTAMP
     );"
   end
 

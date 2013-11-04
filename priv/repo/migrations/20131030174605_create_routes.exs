@@ -10,8 +10,8 @@ defmodule Repo.Migrations.CreateRoutes do
       mode      text,
       waypoints text,
       distance  text,
-      created_at timestamp,
-      updated_at timestamp
+      updated_at timestamp,
+      created_at timestamp DEFAULT LOCALTIMESTAMP
     );"
   end
 
