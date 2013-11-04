@@ -8,5 +8,5 @@
 </div>
 
 <% content_for :scripts do %>
-  <script src="/static/assets/javascripts/routes_controller.js"></script>
+  <script src="/static/assets/javascripts/routes_index.js"></script>
 <% end %>
