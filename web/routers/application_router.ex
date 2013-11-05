@@ -8,7 +8,7 @@ defmodule ApplicationRouter do
 
   forward "/steps", to: StepsRouter
   forward "/routes", to: RoutesRouter
-  forward "/api/v1", to: Api.V1.BaseRouter
+  forward "/api/v1", to: ApiV1BaseRouter
 
   get "/" do
     conn = conn.assign(:title, "Welcome to Dynamo!")

@@ -1,4 +1,4 @@
-defmodule Api.V1.StepsRouter do
+defmodule ApiV1StepsRouter do
   use Dynamo.Router
 
   get "/" do
