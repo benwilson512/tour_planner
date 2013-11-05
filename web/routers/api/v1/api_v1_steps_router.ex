@@ -1,10 +1,11 @@
-defmodule StepsRouter do
+defmodule Api.V1.StepsRouter do
   use Dynamo.Router
 
-  get "/json" do
+  get "/" do
     Step
       |> Repo.all
       |> Step.to_json
       |> conn.resp_body
   end
+
 end
