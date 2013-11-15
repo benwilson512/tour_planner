@@ -13,7 +13,7 @@ defmodule GMaps.Resources do
       |> URI.encode_query
       |> GMaps.Places.get
       |> get_body
-      |> ListDict.get("results")
+      |> HashDict.get("results")
       |> Enum.map(&Resource.from_json(&1))
       |> Enum.map(&Repo.create(&1))
   end

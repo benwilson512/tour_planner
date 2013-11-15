@@ -1,5 +1,4 @@
 defmodule Route do
-  use Ecto.Model
   use TourPlanner.Model
 
   queryable "routes" do
@@ -11,8 +10,8 @@ defmodule Route do
     field :mode,      :string
     field :waypoints, :string
     field :distance,  :string
-    field :updated_at, :datetime
-    field :created_at, :datetime
+    # field :updated_at, :datetime
+    # field :created_at, :datetime
   end
 
   def important_steps(route, max_dist // 50_000) do

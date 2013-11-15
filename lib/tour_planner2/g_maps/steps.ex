@@ -20,10 +20,10 @@ defmodule GMaps.Steps do
 
   def parse_json(json) do
     json
-      |> ListDict.get("routes")
+      |> HashDict.get("routes")
       |> Enum.first
-      |> ListDict.get("legs")
-      |> Enum.reduce [], fn (leg, steps) -> steps ++ ListDict.get(leg, "steps") end
+      |> HashDict.get("legs")
+      |> Enum.reduce [], fn (leg, steps) -> steps ++ HashDict.get(leg, "steps") end
   end
 
   def get_params(route) do

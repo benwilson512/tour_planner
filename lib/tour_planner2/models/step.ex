@@ -1,5 +1,4 @@
 defmodule Step do
-  use Ecto.Model
   use TourPlanner.Model
 
   queryable "steps" do
@@ -11,7 +10,7 @@ defmodule Step do
     field :end_lon,       :float
     field :distance,      :integer
     field :instructions,  :string
-    field :created_at,    :datetime
-    field :updated_at,    :datetime
+    # field :created_at,    :datetime
+    # field :updated_at,    :datetime
   end
 end

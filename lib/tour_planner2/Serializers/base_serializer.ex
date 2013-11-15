@@ -6,13 +6,15 @@ defmodule Base.Serializer do
 
       def to_json(model_list) when is_list(model_list) do
         model = hd(model_list).model
-        model_list
+        {:ok, json} = model_list
           |> Enum.map(&model.attributes(&1))
           |> JSON.encode
+        json
       end
 
       def to_json(obj) do
-        obj |> obj.model.attributes |> JSON.encode
+        {:ok, json} = obj |> obj.model.attributes |> JSON.encode
+        json
       end
     end
   end

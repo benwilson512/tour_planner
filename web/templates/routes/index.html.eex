@@ -2,7 +2,7 @@
 <div ng-controller="RoutesIndexCtrl">
   <ul>
     <li ng-repeat="route in routes">
-      <a href="routes/{{route.id}}">{{route.start}} to {{route.finish}}</a>
+      <a href="/routes/{{route.id}}">{{route.start}} to {{route.finish}}</a>
     </li>
   </ul>
 </div>

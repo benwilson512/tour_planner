@@ -25,6 +25,6 @@ defmodule TourPlanner2.Dynamo do
   # Default functionality available in templates
   templates do
     use Dynamo.Helpers
-    import ApplicationHelper
+    import AngularHelper
   end
 end

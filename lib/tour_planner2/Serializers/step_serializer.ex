@@ -7,7 +7,7 @@ defmodule Step.Serializer do
       start_lon:    json["start_location"]["lng"],
       end_lat:      json["end_location"]["lat"],
       end_lon:      json["end_location"]["lng"],
-      instructions: json["html_instructions"],
+      instructions: json["html_instructions"] |> String.replace(%r/<[^>]*>/, ""),
       distance:     json["distance"]["value"]
     )
   end

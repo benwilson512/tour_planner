@@ -6,9 +6,10 @@ defmodule GMaps.Directions do
   end
 
   def process_response_body(body) do
-    body
+    {:ok, json} = body
       |> to_string
-      |> Jsonex.decode
+      |> JSON.decode
+    json
   end
 
 end
