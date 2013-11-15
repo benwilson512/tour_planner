@@ -15,9 +15,11 @@ defmodule Route do
   end
 
   def important_steps(route, max_dist // 50_000) do
-    route.steps
+    route
+      |> Route.steps
       |> Repo.all
       |> filter_steps(max_dist, [], 0)
+      |> Enum.reverse
   end
 
   defp filter_steps([], _max_dist, keep, _), do: keep
@@ -32,5 +34,9 @@ defmodule Route do
 
   def waypoints_list(route) do
     String.split(route.waypoints, "|")
+  end
+
+  def steps(route) do
+    from s in route.steps, order_by: [asc: s.id]
   end
 end

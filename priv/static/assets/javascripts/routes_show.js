@@ -6,20 +6,16 @@ tourPlanner.controller('RoutesShowCtrl', ['$scope', '$http', 'embeddedData',
       $scope.steps = steps;
       var map = initializeMaps(steps[0].start_lat, steps[0].start_lon);
       $scope.map = map;
-      var bounds = new google.maps.LatLngBounds();
       var markers = [];
 
       for(var i = 0; i < steps.length; i++) {
         var step = steps[i];
-        var coords = new google.maps.LatLng(step.start_lat, step.start_lon);
-        bounds.extend(coords)
         markers.push(new google.maps.Marker({
-            position: coords,
+            position: new google.maps.LatLng(step.start_lat, step.start_lon),
             map: map,
             title: step.instructions
         }));
       }
-      map.fitBounds(bounds);
     });
 
     function initializeMaps(lat, lon) {

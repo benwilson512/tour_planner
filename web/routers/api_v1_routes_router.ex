@@ -20,7 +20,7 @@ defmodule ApiV1RoutesRouter do
     if conn.params[:important] do
       steps = route |> Route.important_steps
     else
-      steps = route.steps |> Repo.all
+      steps = route |> Route.steps |> Repo.all
     end
     steps
       |> Step.to_json
