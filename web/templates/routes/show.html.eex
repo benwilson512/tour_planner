@@ -1,3 +1,5 @@
+<%= embed_data(:route, @route |> Route.to_json) %>
+
 <h1>Route: </h1>
 <div ng-controller="RoutesShowCtrl">
   <ul>
