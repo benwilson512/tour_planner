@@ -1,12 +1,11 @@
-[ "cowboy": {:git, "git://github.com/extend/cowboy.git", "6672ea04155a075e60381413bf9b65b3974b7d57", []},
-  "cowlib": {:git, "git://github.com/extend/cowlib.git", "34a39ef28ca841fb9233ce9df3ec654eb321c5e5", [{:ref, "0.3.0"}]},
-  "dynamo": {:git, "git://github.com/elixir-lang/dynamo.git", "912a0f3a884d65f9a93beebd12c9fbd544c46ecc", []},
-  "ecto": {:git, "git://github.com/elixir-lang/ecto.git", "faacfeef25e35c42b1e97323b03d5bed9ba51416", [{:branch, "master"}]},
+[ "cowboy": {:git, "git://github.com/extend/cowboy.git", "5a25c7f7f2167b8cef03129553e56f422a9890f2", []},
+  "cowlib": {:git, "git://github.com/extend/cowlib.git", "63298e8e160031a70efff86a1acde7e7db1fcda6", [{:ref, "0.4.0"}]},
+  "dynamo": {:git, "git://github.com/elixir-lang/dynamo.git", "c7aaad09f1f98f37b6804ab0bf8bf6ee2cce8da2", []},
+  "ecto": {:git, "git://github.com/elixir-lang/ecto.git", "6f83161a10f7b43ba63a16acf7ee447c5b8a5706", [{:branch, "master"}]},
   "httpotion": {:git, "git://github.com/benwilson512/httpotion.git", "0aae8d251bfc717d6973fa5a26c2d3aebb835061", [{:branch, "master"}]},
   "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "2e13b63788f48934ab9b075b9d741bfa814d0d6d", []},
   "json": {:git, "git://github.com/cblage/elixir-json.git", "9b55d6439ce61d7712a1218766c5cfffe011d070", []},
-  "jsx": {:git, "git://github.com/talentdeficit/jsx.git", "cb14b92a228e51f7bdcaa7eb17f035e4a5c0b47d", [{:tag, "v1.3.3"}]},
   "mimetypes": {:git, "git://github.com/spawngrid/mimetypes.git", "47d37a977a7d633199822bf6b08353007483d00f", []},
   "poolboy": {:git, "git://github.com/devinus/poolboy.git", "c2c939b51aba06790ca51fa78b14c254a6ea977d", []},
-  "postgrex": {:git, "git://github.com/ericmj/postgrex.git", "b234ba84e8ce61276f350ce044186c752261e6e6", [{:branch, "master"}]},
-  "ranch": {:git, "git://github.com/extend/ranch.git", "41705752ffc7e3ecb96eef8374015ead4ca7f699", [{:ref, "0.8.5"}]} ]
+  "postgrex": {:git, "git://github.com/ericmj/postgrex.git", "2683fb09c46a1ad7a6d662912994690961b8cca8", []},
+  "ranch": {:git, "git://github.com/extend/ranch.git", "5df1f222f94e08abdcab7084f5e13027143cc222", [{:ref, "0.9.0"}]} ]
