@@ -15,7 +15,7 @@ defmodule Repo do
   end
 
   def priv do
-    "/Users/ben/projects/tour_planner2/priv/repo"
+    "priv/repo"
   end
 end
 
