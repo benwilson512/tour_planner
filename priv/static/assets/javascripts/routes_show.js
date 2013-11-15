@@ -2,6 +2,7 @@ tourPlanner.controller('RoutesShowCtrl', ['$scope', '$http', 'embeddedData',
   function RoutesShowCtrl($scope, $http, embedded) {
     window.scope = $scope;
     route = embedded.$get('route');
+    $scope.route = route
     $http.get('/api/v1/routes/'+route.id+'/steps?important=true').success(function(steps) {
       $scope.steps = steps;
       var map = initializeMaps(steps[0].start_lat, steps[0].start_lon);

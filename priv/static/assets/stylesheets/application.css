@@ -3,8 +3,8 @@ body {
 }
 
 #map-canvas {
-  height: 400px;
-  width:  600px;
+  height: 600px;
+  width:  100%;
   display: block;
   margin: 50px;
 }
