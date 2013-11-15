@@ -24,7 +24,7 @@ defmodule GMaps.Resources do
 
   def get_params(location, types, radius) do
     [
-      key:      "AIzaSyAb2SNcoUwumA8tKyOd6dFInnuelCDUvYM",
+      key:      GMaps.api_key,
       location: "#{location.start_lat},#{location.start_lon}",
       types:    types |> Enum.join("|"),
       radius:   radius,

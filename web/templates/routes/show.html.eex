@@ -2,6 +2,7 @@
 
 <h1>Route: </h1>
 <div ng-controller="RoutesShowCtrl">
+  <div id="map-canvas"></div>
   <ul>
     <li ng-repeat="step in steps">
       {{step.instructions}}

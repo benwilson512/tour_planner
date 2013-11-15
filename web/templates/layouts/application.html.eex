@@ -4,10 +4,11 @@
     <link rel="stylesheet" type="text/css" href="/static/assets/stylesheets/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/static/assets/stylesheets/application.css">
 
-    <script src="/static/assets/bower/angular/angular.js"></script>
-    <script src="/static/assets/bower/jquery/jquery.js"></script>
-    <script src="/static/assets/javascripts/tourPlanner.js"></script>
-    <script src="/static/assets/javascripts/providers/embedded_data.js"></script>
+    <script type="text/javascript" src="/static/assets/bower/angular/angular.js"></script>
+    <script type="text/javascript" src="/static/assets/bower/jquery/jquery.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAb2SNcoUwumA8tKyOd6dFInnuelCDUvYM&sensor=false"></script>
+    <script type="text/javascript" src="/static/assets/javascripts/tourPlanner.js"></script>
+    <script type="text/javascript" src="/static/assets/javascripts/providers/embedded_data.js"></script>
 
     <title><%= content_for(:title) || @title || "Tour Planner" %></title>
   </head>
