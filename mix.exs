@@ -23,7 +23,7 @@ defmodule TourPlanner2.Mixfile do
       { :postgrex, github: "ericmj/postgrex", branch: "master" },
       { :ecto, github: "elixir-lang/ecto", branch: "master" },
       { :httpotion, github: "benwilson512/httpotion", branch: "master"},
-      { :jsonex, github: "marcelog/jsonex" }
+      { :json,   github: "cblage/elixir-json"}
     ]
   end
 end
