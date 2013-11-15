@@ -38,3 +38,14 @@ namespace :deploy do
   after :finishing, 'deploy:cleanup'
 
 end
+
+namespace :deps do
+  task :get do
+    on roles(:app) do
+      within release_path do
+        execute :mix, "deps.get"
+      end
+    end
+  end
+  before 'deploy:updated', 'deps:get'
+end

@@ -1,7 +1,14 @@
 defmodule Repo do
   use Ecto.Repo, adapter: Ecto.Adapters.Postgres
 
-  def url do
+  def url do: url(Mix.env)
+  def url(:development) do
+    "ecto://tour_planner:tour_planner@localhost/tour_planner2_development"
+  end
+  def url(:production) do
+    "ecto://tour_planner:tourplanner@localhost/tour_planner2_production"
+  end
+  def url(:test) do
     "ecto://tour_planner:tour_planner@localhost/tour_planner2_development"
   end
 
