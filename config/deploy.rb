@@ -7,6 +7,8 @@ set :deploy_to, '/u/apps/tour_planner2'
 set :default_stage, "production"
 # set :scm, :git
 
+set :linked_dirs, %w{deps}
+
 # set :format, :pretty
 # set :log_level, :debug
 # set :pty, true
