@@ -2,9 +2,6 @@ defmodule Model.Queryable do
 
   defmacro __using__(_opts) do
     quote do
-      defmacro queryable(source, do: block) do
-
-      end
 
       def all do
         Repo.all(default_query)

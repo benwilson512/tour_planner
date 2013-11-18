@@ -5,7 +5,8 @@ defmodule ApiV1BaseRouter do
     conn = conn.resp_content_type("application/json")
   end
 
-  forward "/routes", to: ApiV1RoutesRouter
-  forward "/steps", to: ApiV1StepsRouter
+  forward "/routes",    to: ApiV1RoutesRouter
+  forward "/steps",     to: ApiV1StepsRouter
+  forward "/resources", to: ApiV1ResourcesRouter
 
 end

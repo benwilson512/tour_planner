@@ -16,7 +16,7 @@ defmodule Repo.Seeds do
   end
 
   def reset_everything do
-    [Route, Step, Resource] |> Enum.map(&Repo.delete_all(&1))
+    [ResourceStep, Route, Step, Resource] |> Enum.map(&Repo.delete_all(&1))
   end
 
 end

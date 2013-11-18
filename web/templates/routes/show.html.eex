@@ -11,5 +11,5 @@
 </div>
 
 <% content_for :scripts do %>
-  <script src="/static/assets/javascripts/routes_show.js"></script>
+  <script src="/static/assets/javascripts/controllers/routes_show.js"></script>
 <% end %>

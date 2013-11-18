@@ -4,14 +4,14 @@ defmodule Route do
   queryable "routes" do
     has_many :steps, Step
 
-    field :name,      :string
-    field :start,     :string
-    field :finish,    :string
-    field :mode,      :string
-    field :waypoints, :string
-    field :distance,  :string
-    # field :updated_at, :datetime
-    # field :created_at, :datetime
+    field :name,       :string
+    field :start,      :string
+    field :finish,     :string
+    field :mode,       :string
+    field :waypoints,  :string
+    field :distance,   :string
+    field :updated_at, :datetime
+    field :created_at, :datetime
   end
 
   def important_steps(route, max_dist // 50_000) do

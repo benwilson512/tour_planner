@@ -11,11 +11,18 @@ defmodule GMaps.Resources do
     location
       |> get_params(types, radius)
       |> URI.encode_query
-      |> GMaps.Places.get
+      |> GMaps.Places.get([], [timeout: 30_000])
       |> get_body
       |> HashDict.get("results")
       |> Enum.map(&Resource.from_json(&1))
-      |> Enum.map(&Repo.create(&1))
+      |> Enum.map(&create_or_link(&1, location))
+  end
+
+  def create_or_link(resource, location) do
+    dup = Enum.first(resource.find_dups)
+    resource = if dup do dup else resource |> Repo.create end
+    ResourceStep.new(resource_id: resource.id, step_id: location.id)
+      |> Repo.create
   end
 
   def get_body(response) do

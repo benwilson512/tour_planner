@@ -11,19 +11,19 @@ defmodule Resource do
     field :price_level, :integer
     field :rating,      :float
     field :types,       :string
-    # field :created_at,  :datetime
-    # field :updated_at,  :datetime
+    field :created_at,  :datetime
+    field :updated_at,  :datetime
+
+    def find_dups(resource) do
+      Repo.all(from r in Resource, where: r.places_ref == ^resource.places_ref, select: r)
+        |> List.delete(resource)
+    end
   end
 
   def find_duplicates do
     Resource.all
-      |> Enum.map(&find_dups(&1))
+      |> Enum.map(&(&1.find_dups))
       |> List.flatten
-  end
-
-  def find_dups(resource) do
-    Repo.all(from r in Resource, where: r.places_ref == ^resource.places_ref, select: r)
-      |> List.delete(resource)
   end
 
 end
