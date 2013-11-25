@@ -2,8 +2,7 @@ defmodule ApiV1RoutesRouter do
   use Dynamo.Router
 
   get "/" do
-    Route
-      |> Repo.all
+    Route.all
       |> Route.to_json
       |> conn.resp_body
   end

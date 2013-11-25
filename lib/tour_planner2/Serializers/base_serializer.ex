@@ -5,7 +5,7 @@ defmodule Base.Serializer do
       import unquote(__MODULE__)
 
       def to_json(model_list) when is_list(model_list) do
-        if length([]) > 0 do
+        if length(model_list) > 0 do
           model = hd(model_list).model
           {:ok, json} = model_list
             |> Enum.map(&model.attributes(&1))
