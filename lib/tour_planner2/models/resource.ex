@@ -20,6 +20,10 @@ defmodule Resource do
     end
   end
 
+  def of_type(type) do
+    query("select * from resources where types LIKE \'%#{type}%\';")
+  end
+
   def find_duplicates do
     Resource.all
       |> Enum.map(&(&1.find_dups))

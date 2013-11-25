@@ -1,0 +1,17 @@
+{
+  "dev":{
+    "user":"tour_planner",
+    "password":"tour_planner",
+    "database":"tour_planner2_development"
+  },
+  "prod":{
+    "user":"tour_planner",
+    "password":"tourplanner",
+    "database":"tour_planner2_production"
+  },
+  "test":{
+    "user":"tour_planner",
+    "password":"tour_planner",
+    "database":"tour_planner2_test"
+  }
+}

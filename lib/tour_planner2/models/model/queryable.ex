@@ -8,13 +8,13 @@ defmodule Model.Queryable do
       end
 
       def first do
-        [result] = Repo.all(from m in __MODULE__, order_by: [asc: m.id], limit: 1)
-        result
+        Repo.all(from m in __MODULE__, order_by: [asc: m.id], limit: 1)
+          |> Enum.first
       end
 
       def last do
-        [result] = Repo.all(from m in __MODULE__, order_by: [desc: m.id], limit: 1)
-        result
+        Repo.all(from m in __MODULE__, order_by: [desc: m.id], limit: 1)
+          |> Enum.first
       end
 
       def count do
@@ -24,6 +24,10 @@ defmodule Model.Queryable do
 
       def default_query do
         from m in __MODULE__, order_by: [asc: m.id]
+      end
+
+      def query(sql) do
+        Repo.query __MODULE__.Entity, sql
       end
     end
   end

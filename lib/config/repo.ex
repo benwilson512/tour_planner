@@ -1,21 +1,32 @@
 defmodule Repo do
   use Ecto.Repo, adapter: Ecto.Adapters.Postgres
 
+  def config do
+    {:ok, file}   = File.read("lib/config/database.json")
+    {:ok, config} =  file |> JSON.decode
+    config[atom_to_binary(Mix.env)]
+  end
+
   def url do
-    url(Mix.env)
-  end
-  def url(:dev) do
-    "ecto://tour_planner:tour_planner@localhost/tour_planner2_development"
-  end
-  def url(:prod) do
-    "ecto://tour_planner:tourplanner@localhost/tour_planner2_production"
-  end
-  def url(:test) do
-    "ecto://tour_planner:tour_planner@localhost/tour_planner2_development"
+    c = config
+    "ecto://#{c["user"]}:#{c["password"]}@localhost/#{c["database"]}"
   end
 
   def priv do
     "priv/repo"
+  end
+
+  def query(sql) do
+    __MODULE__.adapter.query(__MODULE__, sql)
+  end
+
+  def query(entity, sql) do
+    Postgrex.Result[columns: columns, rows: rows] = query(sql)
+    Enum.map(rows, fn(row) ->
+      columns
+        |> Enum.zip(tuple_to_list(row))
+        |> entity.new
+      end)
   end
 end
 

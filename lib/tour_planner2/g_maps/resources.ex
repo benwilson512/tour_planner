@@ -1,9 +1,9 @@
 defmodule GMaps.Resources do
   def get_nearby(locations, types, radius // 16_000) do
-    IO.puts "Retrieving resources near #{Enum.count(locations)} locations"
     locations
       |> Stream.map(&get_resources(&1, types, radius))
       |> Enum.to_list
+    locations
   end
 
   def get_resources(location, types, radius) do
