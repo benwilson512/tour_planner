@@ -1,15 +1,18 @@
 {
   "dev":{
+    "port":"15432",
     "user":"tour_planner",
     "password":"tour_planner",
     "database":"tour_planner2_development"
   },
   "prod":{
+    "port":"",
     "user":"tour_planner",
     "password":"tourplanner",
     "database":"tour_planner2_production"
   },
   "test":{
+    "port":"15432",
     "user":"tour_planner",
     "password":"tour_planner",
     "database":"tour_planner2_test"
