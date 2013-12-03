@@ -15,6 +15,7 @@ defmodule Repo.Seeds do
 
     IO.puts "This will generate #{Enum.count(steps) * Enum.count(GMaps.Resources.types)} places queries"
     GMaps.Resources.types
+      |> Enum.map(&([&1]))
       |> Enum.map(&GMaps.Resources.get_nearby(steps, &1))
     route
   end

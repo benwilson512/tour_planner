@@ -3,7 +3,7 @@ defmodule Repo do
 
   def config do
     {:ok, file}   = File.read("lib/config/database.json")
-    {:ok, config} =  file |> JSON.decode
+    {:ok, config} = file |> JSON.decode
     config[atom_to_binary(Mix.env)]
   end
 

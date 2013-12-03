@@ -20,28 +20,20 @@ body {
 
 #map-canvas {
   height: 100%;
-  width:  60%;
-  display: block;
+  width:  40%;
+  display: inline;
   float: left;
 }
 
-#side-bar {
-  width: 40%;
-}
-
-#step-list {
+.side-thing {
   background-color: #ffffff;
   width: 20%;
   height: 100%;
   overflow-y: scroll;
-  right: 0px;
-  top: 100px;
+  display: inline;
   float: right;
 }
 
-#resource-list {
-  width: 20%;
-  height: 100%;
-  overflow-y: scroll;
-  float:right;
+#side-bar {
+  width: 60%;
 }

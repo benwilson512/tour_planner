@@ -77,7 +77,7 @@ defmodule GMaps.Resources do
     taxi_stand
     train_station"
       |> String.split("\n")
-      |> Enum.map(&([String.strip(&1)]))
+      |> Enum.map(&(String.strip(&1)))
   end
 
 end

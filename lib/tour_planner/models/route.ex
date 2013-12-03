@@ -12,11 +12,12 @@ defmodule Route do
     field :distance,   :string
     field :updated_at, :datetime
     field :created_at, :datetime
+
+    def important_steps(route) do
+      from s in steps(route), where: s.important == true
+    end
   end
 
-  def important_steps(route) do
-    from s in steps(route), where: s.important == true
-  end
 
   def mark_important_steps(route, max_dist // 50_000) do
     route
