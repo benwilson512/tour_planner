@@ -1,0 +1,43 @@
+<div ng-controller="RoutesNewCtrl">
+<form action="/routes/" method="POST">
+
+  <fieldset>
+    <legend>General Information</legend>
+    <ol>
+      <li>
+        <label>Start</label>
+        <input type="text" name="route[start]">
+      </li>
+      <li>
+        <label>Finish</label>
+        <input type="text" name="route[finish]">
+      </li>
+      <li>
+        <label>Waypoings (comma separated)</label>
+        <input type="text" name="route[waypoints]">
+      </li>
+    </ol>
+    <legend>Resource Types</legend>
+    <ol>
+    <%= lc type inlist @resource_types do %>
+      <li>
+        <label>
+        <input type="checkbox" name="resources[]" checked="checked">
+        <%= type %></label>
+      </li>
+    <% end %>
+    </ol>
+  </fieldset>
+  <div class="form-actions">
+    <ol>
+      <li><input type="submit" value="Save"></li>
+    </ol>
+  </div>
+
+</form>
+
+</div>
+
+<% content_for :scripts do %>
+  <script src="/static/assets/javascripts/controllers/routes_new.js"></script>
+<% end %>

@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.Database do
+defmodule Mix.Tasks.Db do
 
   defmodule Reset do
     use Mix.Task
@@ -12,7 +12,7 @@ defmodule Mix.Tasks.Database do
   defmodule Seed do
     use Mix.Task
     def run(_) do
-      Mix.Task.run "database.reset"
+      Mix.Task.run "db.reset"
       Repo.Seeds.run
     end
   end

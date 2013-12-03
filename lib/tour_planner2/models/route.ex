@@ -14,21 +14,25 @@ defmodule Route do
     field :created_at, :datetime
   end
 
-  def important_steps(route, max_dist // 50_000) do
+  def important_steps(route) do
+    from s in steps(route), where: s.important == true
+  end
+
+  def mark_important_steps(route, max_dist // 50_000) do
     route
       |> Route.steps
       |> Repo.all
-      |> filter_steps(max_dist, [], 0)
-      |> Enum.reverse
+      |> filter_steps([], max_dist, 0)
+      |> Enum.map(fn(step) -> step.important(true) |> Repo.update end)
   end
 
-  defp filter_steps([], _max_dist, keep, _), do: keep
+  defp filter_steps([], keep, _max_dist, _), do: keep
 
-  defp filter_steps([step | steps], max_dist, keep, dist_traveled) do
-    if step.distance >= max_dist || dist_traveled > max_dist do
-      filter_steps(steps, max_dist, [step | keep], 0)
+  defp filter_steps([step | steps], keep, max_dist, dist_traveled) do
+    if step.distance >= max_dist || dist_traveled > max_dist || length(keep) == 0 do
+      filter_steps(steps, [step | keep], max_dist, 0)
     else
-      filter_steps(steps, max_dist, keep, step.distance + dist_traveled)
+      filter_steps(steps, keep, max_dist, step.distance + dist_traveled)
     end
   end
 

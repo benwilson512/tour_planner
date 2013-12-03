@@ -1,13 +1,30 @@
 <%= embed_data(:route, @route |> Route.to_json) %>
 
-<div ng-controller="RoutesShowCtrl">
+<div id="canvas" ng-controller="RoutesShowCtrl">
   <h1>{{route.start}} to {{route.finish}}</h1>
   <div id="map-canvas"></div>
-  <ul>
-    <li ng-repeat="step in steps">
-      {{step.instructions}}
-    </li>
-  </ul>
+  <div id="side-bar"></div>
+    <div id="step-list">
+      <ul>
+        <li ng-repeat="step in steps">
+          <a href ng-click="getResources(step)">{{step.instructions}}</a>
+        </li>
+      </ul>
+    </div>
+    <div id="resource-list"> 
+      <form>
+        <fieldset>
+          <legend>Filters</legend>
+ 
+        </fieldset>
+      </form>
+      <ul>
+        <li ng-repeat="resource in resources">
+          {{resource.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <% content_for :scripts do %>

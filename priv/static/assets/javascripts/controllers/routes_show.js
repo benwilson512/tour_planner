@@ -1,10 +1,14 @@
-tourPlanner.controller('RoutesShowCtrl', ['$scope', '$http', 'embeddedData',
+tourPlanner.controller('RoutesShowCtrl', ['$scope', '$http', '$location', 'embeddedData',
   function RoutesShowCtrl($scope, $http, embedded) {
     window.scope = $scope;
-    route = embedded.$get('route');
+    var resourceMarkers = [];
+    var route    = embedded.$get('route');
+    var map      = initializeMaps();
+    getDirections(route, map)
     $scope.route = route;
-    var map = initializeMaps();
-    $scope.map = map;
+    $scope.map   = map;
+
+    console.log($location.path())
     
     $http.get('/api/v1/routes/'+route.id+'/steps?important=true').success(function(steps) {
       $scope.steps = steps;
@@ -17,13 +21,50 @@ tourPlanner.controller('RoutesShowCtrl', ['$scope', '$http', 'embeddedData',
       }));
     });
 
+    $scope.getResources = function(step) {
+      resourceMarkers = clearMarkers(resourceMarkers);
+      map.setCenter(new google.maps.LatLng(step.start_lat, step.start_lon));
+      map.setZoom(12);
+
+      $http.get('/api/v1/steps/'+step.id+'/resources').success(function(resources) {
+        $scope.resources = resources;
+        resourceMarkers = addLocationsToMap(map, resources);
+      });
+    }
+
+    function getDirections(route, map) {
+      var options = {
+        origin:             route.start,
+        destination:        route.finish,
+        travelMode:         google.maps.TravelMode.BICYCLING,
+        waypoints:          [{location: route.waypoints}],
+        avoidHighways:      true
+      }
+      var directionsService = new google.maps.DirectionsService();
+      var directionsDisplay = new google.maps.DirectionsRenderer();
+      directionsDisplay.setMap(map);
+      directionsService.route(options, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+          directionsDisplay.setDirections(result);
+        }
+      });
+    }
+
+    function clearMarkers(markers) {
+      for (var i = 0; i < markers.length; i++ ) {
+        markers[i].setMap(null);
+      }
+      return [];
+    }
+
     function addLocationsToMap(map, data) {
-      var markers = $.map(data, function(point) {
-        new google.maps.Marker({
+      var markers = [];
+      $.map(data, function(point) {
+        markers.push(new google.maps.Marker({
             position: new google.maps.LatLng(point.lat, point.lon),
             map: map,
             title: point.title
-        })
+        }));
       });
       return markers;
     }
@@ -38,5 +79,6 @@ tourPlanner.controller('RoutesShowCtrl', ['$scope', '$http', 'embeddedData',
           mapOptions);
       return map;
     }
+
   }
 ]);

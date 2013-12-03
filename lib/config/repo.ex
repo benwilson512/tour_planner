@@ -9,7 +9,7 @@ defmodule Repo do
 
   def url do
     c = config
-    "ecto://#{c["user"]}:#{c["password"]}@localhost/#{c["database"]}"
+    "ecto://#{c["user"]}:#{c["password"]}@localhost:15432/#{c["database"]}"
   end
 
   def priv do

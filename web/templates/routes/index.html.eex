@@ -7,6 +7,8 @@
   </ul>
 </div>
 
+<a href="/routes/new">New Route</a>
+
 <% content_for :scripts do %>
   <script src="/static/assets/javascripts/controllers/routes_index.js"></script>
 <% end %>

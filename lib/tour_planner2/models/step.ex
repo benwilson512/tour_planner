@@ -10,6 +10,7 @@ defmodule Step do
     field :end_lon,       :float
     field :distance,      :integer
     field :instructions,  :string
+    field :important,     :boolean
     field :created_at,    :datetime
     field :updated_at,    :datetime
 
@@ -20,6 +21,14 @@ defmodule Step do
         join:   r  in Resource,     on: r.id == rs.resource_id,
         where:  s.id == ^step.id,
         select: r
+      )
+    end
+
+    def near_resources(step, radius // 16_000) do
+      Repo.all(
+        from r in Resource,
+        where: r.lat < (^step.start_lat + ^radius) and r.lat > (^step.start_lat + ^radius)
+          and r.lon < (^step.start_lon + ^radius) and r.lon > (^step.start_lon + ^radius)
       )
     end
   end

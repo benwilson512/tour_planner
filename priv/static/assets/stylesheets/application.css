@@ -1,10 +1,47 @@
-body {
-  padding-top: 50px;
+html {
+    height: 100%;
 }
 
+body {
+  height: 100%;
+  margin-top: 50px;
+}
+
+#canvas {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+
 #map-canvas {
-  height: 600px;
-  width:  100%;
+  height: 100%;
+  width:  60%;
   display: block;
-  margin: 50px;
+  float: left;
+}
+
+#side-bar {
+  width: 40%;
+}
+
+#step-list {
+  background-color: #ffffff;
+  width: 20%;
+  height: 100%;
+  overflow-y: scroll;
+  right: 0px;
+  top: 100px;
+  float: right;
+}
+
+#resource-list {
+  width: 20%;
+  height: 100%;
+  overflow-y: scroll;
+  float:right;
 }

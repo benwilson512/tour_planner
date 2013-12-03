@@ -1,12 +1,14 @@
 defmodule GMaps.Steps do
+  import HashDict
+  import Enum
 
   def get(route) do
     route
       |> get_directions
       |> parse_json
-      |> Enum.map(&Step.from_json(&1))
-      |> Enum.map(fn(step) -> step.route_id(route.id) end)
-      |> Enum.map(&Repo.create(&1))
+      |> map(&Step.from_json(&1))
+      |> map(fn(step) -> step.route_id(route.id) end)
+      |> map(&Repo.create(&1))
     route
   end
 
@@ -20,10 +22,10 @@ defmodule GMaps.Steps do
 
   def parse_json(json) do
     json
-      |> HashDict.get("routes")
-      |> Enum.first
-      |> HashDict.get("legs")
-      |> Enum.reduce [], fn (leg, steps) -> steps ++ HashDict.get(leg, "steps") end
+      |> get("routes")
+      |> first
+      |> get("legs")
+      |> Enum.reduce [], fn (leg, steps) -> steps ++ get(leg, "steps") end
   end
 
   def get_params(route) do
