@@ -23,6 +23,7 @@ defmodule RoutesRouter do
   get "/:id" do
     route = route(conn.params[:id])
     conn  = conn.assign(:route, route)
+    conn  = conn.assign(:types, GMaps.Resources.types)
     render conn, "routes/show.html"
   end
 

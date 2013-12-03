@@ -5,6 +5,7 @@
   <div id="map-canvas"></div>
   <div id="side-bar"></div>
     <div id="step-list">
+      <h2>Waypoints</h2>
       <ul>
         <li ng-repeat="step in steps">
           <a href ng-click="getResources(step)">{{step.instructions}}</a>
@@ -15,9 +16,20 @@
       <form>
         <fieldset>
           <legend>Filters</legend>
- 
+          <ul>
+          <%= lc type inlist @types do %>
+            <li>
+              <label>
+                <input type="checkbox" name="types[<%= type %>" checked="checked">
+                <%= type %>
+              </label>
+            </li>
+          <% end %>
+          </ul>
         </fieldset>
       </form>
+      <h2>Resources</h2>
+
       <ul>
         <li ng-repeat="resource in resources">
           {{resource.name}}
