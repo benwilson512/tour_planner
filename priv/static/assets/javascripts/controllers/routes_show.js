@@ -8,8 +8,6 @@ tourPlanner.controller('RoutesShowCtrl', ['$scope', '$http', '$location', 'embed
     getDirections(route, map)
     $scope.route = route;
     $scope.map   = map;
-
-    console.log($location.path())
     
     $http.get('/api/v1/routes/'+route.id+'/steps?important=true').success(function(steps) {
       $scope.steps = steps;

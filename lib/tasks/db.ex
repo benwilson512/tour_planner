@@ -3,7 +3,7 @@ defmodule Mix.Tasks.Db do
   defmodule Reset do
     use Mix.Task
     def run(_) do
-      Mix.shell.cmd("dropdb --if-exists -e #{Repo.config["database"]}")
+      Mix.shell.cmd("dropdb -e #{Repo.config["database"]}")
       Mix.shell.cmd("createdb -e #{Repo.config["database"]}")
       Mix.Task.run "ecto.migrate", [Repo]
     end
