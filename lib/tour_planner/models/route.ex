@@ -25,6 +25,7 @@ defmodule Route do
       |> Repo.all
       |> filter_steps([], max_dist, 0)
       |> Enum.map(fn(step) -> step.important(true) |> Repo.update end)
+    route
   end
 
   defp filter_steps([], keep, _max_dist, _), do: keep

@@ -8,10 +8,9 @@ defmodule Repo.Seeds do
       mode:       "bicycling")
       |> Repo.create
       |> GMaps.Steps.get
+      |> Route.mark_important_steps
 
-    steps = route
-      |> Route.important_steps
-      |> Repo.all
+    steps = route.important_steps |> Repo.all
 
     IO.puts "This will generate #{Enum.count(steps) * Enum.count(GMaps.Resources.types)} places queries"
     GMaps.Resources.types
