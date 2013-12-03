@@ -1,5 +1,6 @@
 tourPlanner.controller('RoutesShowCtrl', ['$scope', '$http', '$location', 'embeddedData',
-  function RoutesShowCtrl($scope, $http, embedded) {
+  function RoutesShowCtrl($scope, $http, $location, embedded) {
+    console.log(embedded);
     window.scope = $scope;
     var resourceMarkers = [];
     var route    = embedded.$get('route');

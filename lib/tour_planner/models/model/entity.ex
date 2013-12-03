@@ -1,4 +1,4 @@
-defmodule TourPlanner2.Entity do
+defmodule TourPlanner.Entity do
   defmacro __using__(_) do
     quote do
       use Ecto.Entity

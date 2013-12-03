@@ -1,4 +1,4 @@
-defmodule TourPlanner2.Dynamo do
+defmodule TourPlanner.Dynamo do
   use Dynamo
 
   config :dynamo,
@@ -6,7 +6,7 @@ defmodule TourPlanner2.Dynamo do
     env: Mix.env,
 
     # The OTP application associated with this Dynamo
-    otp_app: :tour_planner2,
+    otp_app: :tour_planner,
 
     # The endpoint to dispatch requests to
     endpoint: ApplicationRouter,

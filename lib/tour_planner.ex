@@ -1,4 +1,4 @@
-defmodule TourPlanner2 do
+defmodule TourPlanner do
   use Application.Behaviour
 
   @doc """
@@ -7,6 +7,6 @@ defmodule TourPlanner2 do
   """
   def start(_type, _args) do
     Repo.Sup.start_link
-    TourPlanner2.Dynamo.start_link([max_restarts: 5, max_seconds: 5])
+    TourPlanner.Dynamo.start_link([max_restarts: 5, max_seconds: 5])
   end
 end

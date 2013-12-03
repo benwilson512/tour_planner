@@ -1,5 +1,5 @@
 defmodule ApplicationRouterTest do
-  use TourPlanner2.TestCase
+  use TourPlanner.TestCase
   use Dynamo.HTTP.Case
 
   # Sometimes it may be convenient to test a specific

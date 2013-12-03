@@ -1,8 +1,8 @@
-Dynamo.under_test(TourPlanner2.Dynamo)
+Dynamo.under_test(TourPlanner.Dynamo)
 Dynamo.Loader.enable
 ExUnit.start
 
-defmodule TourPlanner2.TestCase do
+defmodule TourPlanner.TestCase do
   use ExUnit.CaseTemplate
 
   # Enable code reloading on test cases

@@ -1,9 +1,9 @@
-set :application, 'tour_planner2'
+set :application, 'tour_planner'
 set :repo_url, "git@github.com:benwilson512/tour_planner2.git"
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-set :deploy_to, '/u/apps/tour_planner2'
+set :deploy_to, '/u/apps/tour_planner'
 set :default_stage, "production"
 # set :scm, :git
 

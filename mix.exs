@@ -1,20 +1,20 @@
-defmodule TourPlanner2.Mixfile do
+defmodule TourPlanner.Mixfile do
   use Mix.Project
 
   def project do
-    [ app: :tour_planner2,
+    [ app: :tour_planner,
       version: "0.0.1",
-      dynamos: [TourPlanner2.Dynamo],
+      dynamos: [TourPlanner.Dynamo],
       compilers: [:elixir, :dynamo, :app],
       env: [prod: [compile_path: "ebin"]],
-      compile_path: "tmp/#{Mix.env}/tour_planner2/ebin",
+      compile_path: "tmp/#{Mix.env}/tour_planner/ebin",
       deps: deps ]
   end
 
   # Configuration for the OTP application
   def application do
     [ applications: [:cowboy, :dynamo, :httpotion],
-      mod: { TourPlanner2, [] } ]
+      mod: { TourPlanner, [] } ]
   end
 
   defp deps do
