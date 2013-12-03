@@ -1,7 +1,7 @@
 tourPlanner.controller('RoutesShowCtrl', ['$scope', '$http', '$location', 'embeddedData',
   function RoutesShowCtrl($scope, $http, $location, embedded) {
-    console.log(embedded);
     window.scope = $scope;
+    window.alocation = $location
     var resourceMarkers = [];
     var route    = embedded.$get('route');
     var map      = initializeMaps();
@@ -18,9 +18,19 @@ tourPlanner.controller('RoutesShowCtrl', ['$scope', '$http', '$location', 'embed
           title: step.instructions
         };
       }));
+
+      if($location.search().step) {
+        var step_id = parseInt($location.search().step);
+        $.each(steps, function(_, step) {
+          if(step.id == step_id) {
+            getResources(step);
+          }
+        });
+      }
     });
 
-    $scope.getResources = function(step) {
+    function getResources(step) {
+      $location.search({step: step.id});
       resourceMarkers = clearMarkers(resourceMarkers);
       map.setCenter(new google.maps.LatLng(step.start_lat, step.start_lon));
       map.setZoom(12);
@@ -30,19 +40,23 @@ tourPlanner.controller('RoutesShowCtrl', ['$scope', '$http', '$location', 'embed
         resourceMarkers = addLocationsToMap(map, resources);
       });
     }
+    $scope.getResources = getResources;
 
     function getDirections(route, map) {
-      var options = {
+      var serviceOptions = {
         origin:             route.start,
         destination:        route.finish,
         travelMode:         google.maps.TravelMode.BICYCLING,
         waypoints:          [{location: route.waypoints}],
         avoidHighways:      true
       }
+
+      var rendererOptions = {preserveViewport: true}
       var directionsService = new google.maps.DirectionsService();
-      var directionsDisplay = new google.maps.DirectionsRenderer();
+      var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
+
       directionsDisplay.setMap(map);
-      directionsService.route(options, function(result, status) {
+      directionsService.route(serviceOptions, function(result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(result);
         }
