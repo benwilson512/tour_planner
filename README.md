@@ -20,3 +20,12 @@
 
         http://localhost:4000
 
+Assets are in
+
+    priv/assets
+
+Currently all CSS is in application.css
+Layout is application.html.eex
+
+Routes show is web/templates/routes/show.html.eex
+
