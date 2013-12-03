@@ -2,7 +2,7 @@
   "dev":{
     "port":"15432",
     "user":"tour_planner",
-    "password":"tour_planner",
+    "password":"",
     "database":"tour_planner2_development"
   },
   "prod":{
