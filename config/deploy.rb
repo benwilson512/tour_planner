@@ -24,9 +24,8 @@ namespace :deploy do
   desc "start application"
   task :start do
     on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
       within release_path do
-        execute "MIX_ENV=prod", :mix, "do compile, server --port 80 &"
+        run("(nohup MIX_ENV=prod mix do compile, server --port 80 &)")
       end
     end
   end
@@ -36,7 +35,9 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
       execute :killall, "beam"
-      execute "MIX_ENV=prod", :mix, "do compile, server --port 80 &"
+      within release_path do
+        run "MIX_ENV=prod mix do compile, server --port 80 &"
+      end
     end
   end
 

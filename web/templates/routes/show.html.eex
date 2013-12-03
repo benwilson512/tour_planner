@@ -37,7 +37,7 @@
     <div id="resource-list" class="side-thing"> 
       <h2>Resources</h2>
       <ul>
-        <li ng-repeat="resource in resources | resourceTypesFilter ">
+        <li ng-repeat="resource in resources">
           {{resource.name}}
         </li>
       </ul>
