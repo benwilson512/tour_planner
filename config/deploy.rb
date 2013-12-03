@@ -25,7 +25,7 @@ namespace :deploy do
   task :start do
     on roles(:app) do
       within release_path do
-        execute "cd #{release_path} && MIX_ENV=prod mix do compile, server --port 80 &"
+        execute "cd #{release_path} && MIX_ENV=prod elixir --detached -S mix do compile, server --port 80"
       end
     end
   end
@@ -36,7 +36,7 @@ namespace :deploy do
       # Your restart mechanism here, for example:
       execute :killall, "beam"
       within release_path do
-        execute "cd #{release_path} && MIX_ENV=prod mix do compile, server --port 80 &"
+        execute "cd #{release_path} && MIX_ENV=prod elixir --detached -S mix do compile, server --port 80"
       end
     end
   end

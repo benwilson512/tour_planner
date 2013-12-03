@@ -29,8 +29,6 @@ defmodule Mix.Tasks.Db do
   defmodule Seed do
     use Mix.Task
     def run(_) do
-      Mix.Task.run "db.reset"
-      TourPlanner.start
       Repo.Seeds.run
     end
   end
