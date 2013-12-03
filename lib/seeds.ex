@@ -8,7 +8,7 @@ defmodule Repo.Seeds do
       mode:       "bicycling")
       |> Repo.create
       |> GMaps.Steps.get
-      |> Route.mark_important_steps
+      |> Route.mark_important_steps(100_000)
 
     steps = route.important_steps |> Repo.all
 

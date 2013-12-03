@@ -4,16 +4,18 @@ tourPlanner.controller('RoutesShowCtrl', ['$scope', '$http', '$location', 'embed
     window.alocation = $location
 
     var resourceMarkers = [];
+
     var route    = embedded.$get('route');
     var steps    = embedded.$get('steps');
     var types    = embedded.$get('types');
     var map      = initializeMaps();
-    getDirections(route, map)
+    getDirections(route, map);
 
     $scope.route = route;
     $scope.steps = steps;
     $scope.types = types;
     $scope.map   = map;
+    $scope.visibleTypes = {};
 
     addLocationsToMap(map, $.map(steps, function(step) {
       return {
@@ -36,6 +38,12 @@ tourPlanner.controller('RoutesShowCtrl', ['$scope', '$http', '$location', 'embed
       $scope.resources    = getResources($scope.focused_step);
     }
     $scope.focusStep = focusStep;
+
+    function updateTypes(type) {
+      console.log(type);
+      $scope.visibleTypes = angular.copy(type);
+    }
+    $scope.updateTypes = updateTypes; 
 
     function getResources(step) {
       resourceMarkers = clearMarkers(resourceMarkers);

@@ -14,7 +14,7 @@ defmodule Route do
     field :created_at, :datetime
 
     def important_steps(route) do
-      from s in steps(route), where: s.important == true
+      from s in steps(route), where: s.important == true, order_by: [asc: s.id]
     end
   end
 
