@@ -43,6 +43,11 @@ tourPlanner.controller('RoutesShowCtrl',
       });
     }
 
+    $scope.isStepActive = isStepActive;
+    function isStepActive(index) {
+      return(index == $scope.stepIndex);
+    }
+
     function clearMarkers(markers) {
       for (var i = 0; i < markers.length; i++ ) {
         markers[i].setMap(null);

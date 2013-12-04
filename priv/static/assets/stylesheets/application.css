@@ -37,3 +37,7 @@ body {
 #side-bar {
   width: 60%;
 }
+
+.active {
+  background-color: #ffff00;
+}
