@@ -35,13 +35,11 @@ tourPlanner.controller('RoutesShowCtrl',
 
     $scope.getResources = getResources;
     function getResources(step) {
-      resourceMarkers = clearMarkers(resourceMarkers);
       map.setCenter(new google.maps.LatLng(step.start_lat, step.start_lon));
       map.setZoom(12);
 
       $http.get('/api/v1/steps/'+step.id+'/resources').success(function(resources) {
         $scope.resources = resources;
-        resourceMarkers  = gMaps.addLocations(map, resources);
       });
     }
 

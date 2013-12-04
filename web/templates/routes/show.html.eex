@@ -25,8 +25,8 @@
           <ul>
             <li ng-repeat="type in types">
               <label>
-                <input type="checkbox" ng-model="visibleTypes[type]" ng-click="updateTypes(visibleTypes)">
-                {{type}}
+                <input type="checkbox" ng-model="visibleTypes[type.stub]" ng-click="updateTypes(visibleTypes)">
+                {{type.title}}
               </label>
             </li>
           </ul>
@@ -38,7 +38,7 @@
       <h2>Resources</h2>
       <ul>
         <li ng-repeat="resource in resources | resourcesFilter:visibleTypes ">
-          {{resource.name}}
+          <b>{{resource.name}}</b>:<br />{{resource.address}}
         </li>
       </ul>
     </div>

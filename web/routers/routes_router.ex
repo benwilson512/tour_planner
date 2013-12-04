@@ -22,7 +22,9 @@ defmodule RoutesRouter do
 
   get "/:id" do
     route = route(conn.params[:id])
-    {:ok, types} = GMaps.Resources.types |> JSON.encode
+    {:ok, types} = GMaps.Resources.types
+      |> Enum.map(&(format_types(&1)))
+      |> JSON.encode
     conn  = conn.assign(:route, route).
                  assign(:steps, route.important_steps |> Repo.all).
                  assign(:types, types)
@@ -37,5 +39,13 @@ defmodule RoutesRouter do
 
   defp route(id) do
     Repo.get(Route, id |> binary_to_integer)
+  end
+
+  defp format_types(string) do
+    title = string
+      |> String.split("_")
+      |> Enum.map(&(String.capitalize(&1)))
+      |> Enum.join(" ")
+    [title: title, stub: string]
   end
 end
