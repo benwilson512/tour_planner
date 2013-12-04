@@ -6,9 +6,10 @@
 
     <script type="text/javascript" src="/static/assets/bower/jquery/jquery.js"></script>
     <script type="text/javascript" src="/static/assets/bower/angular/angular.js"></script>
-    <script type="text/javascript" src="/static/assets/javascripts/tourPlanner.js"></script>
+    <script type="text/javascript" src="/static/assets/javascripts/app.js"></script>
     <script type="text/javascript" src="/static/assets/javascripts/providers/embedded_data.js"></script>
     <script type="text/javascript" src="/static/assets/javascripts/providers/google_maps.js"></script>
+    <script type="text/javascript" src="/static/assets/javascripts/filters/filters.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAb2SNcoUwumA8tKyOd6dFInnuelCDUvYM&sensor=false"></script>
 
     <title><%= content_for(:title) || @title || "Tour Planner" %></title>

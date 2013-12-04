@@ -1,6 +1,7 @@
 tourPlanner.controller('RoutesShowCtrl',
   ['$scope', '$http', '$location', 'embeddedData', 'googleMaps',
   function RoutesShowCtrl($scope, $http, $location, embedded, gMaps) {
+    window.scope = $scope;
     var resourceMarkers = [];
 
     var route    = embedded.$get('route');
@@ -15,34 +16,24 @@ tourPlanner.controller('RoutesShowCtrl',
     $scope.map   = map;
     $scope.visibleTypes = {};
 
-    gMaps.addLocations(map, $.map(steps, function(step) {
-      return {
-        lat: step.start_lat,
-        lon: step.start_lon,
-        title: step.instructions
-      };
-    }));
+    putStepsOnMap();
+    initURL();
 
-    if($location.search().step) {
-      focusStep(parseInt($location.search().step));
-    } else {
-      focusStep(0);
-    }
-
-    function focusStep(index) {
-      $location.search({step: index})
-      $scope.step_index   = parseInt(index);
-      $scope.focused_step = $scope.steps[$scope.step_index];
-      $scope.resources    = getResources($scope.focused_step);
-    }
     $scope.focusStep = focusStep;
-
-    function updateTypes(type) {
-      console.log(type);
-      $scope.visibleTypes = angular.copy(type);
+    function focusStep(index) {
+      index = parseInt(index);
+      $location.search({step: index})
+      $scope.stepIndex   = index
+      $scope.focusedStep = $scope.steps[index];
+      $scope.resources   = getResources($scope.focusedStep);
     }
-    $scope.updateTypes = updateTypes; 
 
+    $scope.updateTypes = updateTypes; 
+    function updateTypes(visibleTypes) {
+      $scope.visibleTypes = angular.copy(visibleTypes);
+    }
+
+    $scope.getResources = getResources;
     function getResources(step) {
       resourceMarkers = clearMarkers(resourceMarkers);
       map.setCenter(new google.maps.LatLng(step.start_lat, step.start_lon));
@@ -53,13 +44,30 @@ tourPlanner.controller('RoutesShowCtrl',
         resourceMarkers  = gMaps.addLocations(map, resources);
       });
     }
-    $scope.getResources = getResources;
 
     function clearMarkers(markers) {
       for (var i = 0; i < markers.length; i++ ) {
         markers[i].setMap(null);
       }
       return [];
+    }
+
+    function putStepsOnMap() {
+      gMaps.addLocations(map, $.map(steps, function(step) {
+        return {
+          lat: step.start_lat,
+          lon: step.start_lon,
+          title: step.instructions
+        };
+      }));
+    }
+
+    function initURL() {
+      if($location.search().step) {
+        focusStep(parseInt($location.search().step));
+      } else {
+        focusStep(0);
+      }
     }
 
   }
