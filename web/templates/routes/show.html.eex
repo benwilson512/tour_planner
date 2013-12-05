@@ -9,8 +9,11 @@
 
     <div id="step-list" class="side-thing">
       <h2>Waypoints</h2>
-      <a href ng-click="focusStep(stepIndex - 1)">Prev</a>
-      <a href ng-click="focusStep(stepIndex + 1)">Next</a>
+      <p>
+        <a href ng-click="focusStep(stepIndex - 1)">Prev</a>
+        {{stepIndex}} of {{steps.length - 1}}
+        <a href ng-click="focusStep(stepIndex + 1)">Next</a>
+      </p>
       <ul>
         <li ng-repeat="step in steps" ng-class="{active:($index == stepIndex)}">
           <a href ng-click="focusStep($index)">{{step.instructions}}</a>
