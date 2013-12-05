@@ -19,15 +19,14 @@
     </div>
 
     <div id="types-list" class="side-thing">
-      <form novalidate>
+      <form name="filterForm" novalidate>
         <fieldset>
           <legend>Filters</legend>
           <ul>
             <li ng-repeat="type in types">
               <label>
                 <input type="checkbox"
-                       ng-model="visibleTypes[type.stub]"
-                       ng-click="updateTypes(visibleTypes)">
+                       ng-model="visibleTypes[type.stub]">
                 {{type.title}}
               </label>
             </li>

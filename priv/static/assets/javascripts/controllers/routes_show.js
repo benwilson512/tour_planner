@@ -2,6 +2,7 @@ tourPlanner.controller('RoutesShowCtrl',
   ['$scope', '$http', '$location', 'embeddedData', 'googleMaps',
   function RoutesShowCtrl($scope, $http, $location, embedded, gMaps) {
     window.scope = $scope;
+    window.alocation = $location;
     var resourceMarkers = [];
 
     var route    = embedded.$get('route');
@@ -17,20 +18,55 @@ tourPlanner.controller('RoutesShowCtrl',
     $scope.visibleTypes = {};
 
     putStepsOnMap();
-    initURL();
 
     $scope.focusStep = focusStep;
     function focusStep(index) {
       index = parseInt(index);
-      $location.search({step: index})
+      addParams({step: index});
       $scope.stepIndex   = index
       $scope.focusedStep = $scope.steps[index];
       $scope.resources   = getResources($scope.focusedStep);
     }
 
-    $scope.updateTypes = updateTypes; 
-    function updateTypes(visibleTypes) {
-      $scope.visibleTypes = angular.copy(visibleTypes);
+    $scope.$watch(function() {
+      return $location.search().types;
+    }, function(types) {
+      if (types) {
+        typesUrlToForm(types);
+      }
+    });
+
+    $scope.$watchCollection('visibleTypes', function(formParams) {
+      typesFormToUrl(formParams);
+    });
+
+    $scope.$watch(function() {
+      return $location.search().step;
+    }, function(stepIndex) {
+      if(stepIndex) {
+        focusStep(stepIndex);
+      } else {
+        focusStep(0);
+      }
+    });
+
+
+    function typesFormToUrl(hash) {
+      var visible = [];
+      for (var a in hash) {
+        if (hash[a]) {
+          visible.push(a)
+        }
+      }
+      addParams({types: visible});
+    }
+
+    function typesUrlToForm(searchResult) {
+      var hash = {};
+      $.each(searchResult, function(_, type) {
+        hash[type] = true;
+      });
+      $scope.visibleTypes = hash;
     }
 
     $scope.getResources = getResources;
@@ -65,12 +101,9 @@ tourPlanner.controller('RoutesShowCtrl',
       }));
     }
 
-    function initURL() {
-      if($location.search().step) {
-        focusStep(parseInt($location.search().step));
-      } else {
-        focusStep(0);
-      }
+    function addParams(params) {
+      var newParams = $.extend($location.search(), params);
+      $location.search(newParams);
     }
 
   }
