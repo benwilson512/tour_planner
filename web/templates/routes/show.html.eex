@@ -12,7 +12,7 @@
       <a href ng-click="focusStep(stepIndex - 1)">Prev</a>
       <a href ng-click="focusStep(stepIndex + 1)">Next</a>
       <ul>
-        <li ng-repeat="step in steps" ng-class="{active:isStepActive($index)}">
+        <li ng-repeat="step in steps" ng-class="{active:($index == stepIndex)}">
           <a href ng-click="focusStep($index)">{{step.instructions}}</a>
         </li>
       </ul>

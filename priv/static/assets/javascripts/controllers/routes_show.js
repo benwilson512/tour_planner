@@ -50,7 +50,6 @@ tourPlanner.controller('RoutesShowCtrl',
       }
     });
 
-
     function typesFormToUrl(hash) {
       var visible = [];
       for (var a in hash) {
@@ -77,11 +76,6 @@ tourPlanner.controller('RoutesShowCtrl',
       $http.get('/api/v1/steps/'+step.id+'/resources').success(function(resources) {
         $scope.resources = resources;
       });
-    }
-
-    $scope.isStepActive = isStepActive;
-    function isStepActive(index) {
-      return(index == $scope.stepIndex);
     }
 
     function clearMarkers(markers) {
