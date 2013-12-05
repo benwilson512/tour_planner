@@ -1,16 +1,18 @@
 tourPlanner.service('googleMaps', function() {
+  var allMarkers = {steps: [], foo: []};
+  var map;
   return {
+    allMarkers: allMarkers,
     initialize: function(elementId, center) {
       var mapOptions = {
         center: center,
         zoom: 8,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
-      var map = new google.maps.Map(document.getElementById(elementId),
-          mapOptions);
+      map = new google.maps.Map(document.getElementById(elementId), mapOptions);
       return map;
     },
-    getDirections: function(map, route) {
+    getDirections: function(route) {
       var serviceOptions = {
         origin:        route.start,
         destination:   route.finish,
@@ -30,16 +32,34 @@ tourPlanner.service('googleMaps', function() {
         }
       });
     },
-    addLocations: function(map, data) {
-      var markers = [];
-      $.map(data, function(point) {
-        markers.push(new google.maps.Marker({
-            position: new google.maps.LatLng(point.lat, point.lon),
-            map: map,
-            title: point.title
-        }));
-      });
-      return markers;
+    setMarkers: function(label, markers) {
+      this.clearMarkers(label);
+      this.addLocations(label, markers);
+    },
+    addMarkers: function(label, markers) {
+      this.initLabel(label);
+      allMarkers[label] = allMarkers[label].concat(markers);;
+    },
+    addLocations: function(label, data) {
+      this.addMarkers(label, $.map(data, function(point) {
+        return new google.maps.Marker({
+          position: new google.maps.LatLng(point.lat, point.lon),
+          map: map,
+          title: point.title
+        });
+      }));
+    },
+    initLabel: function(label) {
+      if(!allMarkers[label] || !allMarkers[label].length) {
+        allMarkers[label] = []
+      }
+    },
+    clearMarkers: function(label) {
+      this.initLabel(label)
+      for (var i = 0; i < allMarkers[label].length; i++ ) {
+        allMarkers[label][i].setMap(null);
+      }
+      return allMarkers[label];
     }
   }
 });

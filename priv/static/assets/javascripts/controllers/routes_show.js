@@ -1,15 +1,16 @@
 tourPlanner.controller('RoutesShowCtrl',
-  ['$scope', '$http', '$location', 'embeddedData', 'googleMaps',
-  function RoutesShowCtrl($scope, $http, $location, embedded, gMaps) {
+  ['$scope', '$http', '$location', 'embeddedData', 'googleMaps', 'resourcesFilter',
+  function RoutesShowCtrl($scope, $http, $location, embedded, gMaps, resourcesFilter) {
     window.scope = $scope;
     window.alocation = $location;
+    window.gMaps = gMaps;
     var resourceMarkers = [];
 
     var route    = embedded.$get('route');
     var steps    = embedded.$get('steps');
     var types    = embedded.$get('types');
     var map      = gMaps.initialize("map-canvas", new google.maps.LatLng(steps[0].start_lat, steps[0].start_lon));
-    gMaps.getDirections(map, route);
+    gMaps.getDirections(route);
 
     $scope.route = route;
     $scope.steps = steps;
@@ -25,7 +26,6 @@ tourPlanner.controller('RoutesShowCtrl',
       addParams({step: index});
       $scope.stepIndex   = index
       $scope.focusedStep = $scope.steps[index];
-      $scope.resources   = getResources($scope.focusedStep);
     }
 
     $scope.$watch(function() {
@@ -38,6 +38,11 @@ tourPlanner.controller('RoutesShowCtrl',
 
     $scope.$watchCollection('visibleTypes', function(formParams) {
       typesFormToUrl(formParams);
+      updateVisibleResources($scope.resources, $scope.visibleTypes)
+    });
+
+    $scope.$watch('resources', function(resources) {
+      updateVisibleResources($scope.resources, $scope.visibleTypes)
     });
 
     $scope.$watch(function() {
@@ -68,25 +73,24 @@ tourPlanner.controller('RoutesShowCtrl',
       $scope.visibleTypes = hash;
     }
 
-    $scope.getResources = getResources;
-    function getResources(step) {
-      map.setCenter(new google.maps.LatLng(step.start_lat, step.start_lon));
-      map.setZoom(12);
+    $scope.$watch('focusedStep', function(step) {
+      getResources(step);
+    });
 
+    function getResources(step) {
       $http.get('/api/v1/steps/'+step.id+'/resources').success(function(resources) {
         $scope.resources = resources;
       });
     }
 
-    function clearMarkers(markers) {
-      for (var i = 0; i < markers.length; i++ ) {
-        markers[i].setMap(null);
-      }
-      return [];
+    function updateVisibleResources(resources, visibleTypes) {
+      var filtered = resourcesFilter(resources, visibleTypes);
+      console.log(filtered.length);
+      gMaps.setMarkers("resources", filtered);
     }
 
     function putStepsOnMap() {
-      gMaps.addLocations(map, $.map(steps, function(step) {
+      gMaps.addLocations("steps", $.map(steps, function(step) {
         return {
           lat: step.start_lat,
           lon: step.start_lon,
