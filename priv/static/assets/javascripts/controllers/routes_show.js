@@ -24,8 +24,10 @@ tourPlanner.controller('RoutesShowCtrl',
     function focusStep(index) {
       index = parseInt(index);
       addParams({step: index});
-      $scope.stepIndex   = index
-      $scope.focusedStep = $scope.steps[index];
+      var focusedStep = $scope.steps[index];
+      $scope.stepIndex   = index;
+      $scope.focusedStep = focusedStep;
+      map.setCenter(new google.maps.LatLng(focusedStep.start_lat, focusedStep.start_lon));
     }
 
     $scope.$watch(function() {
@@ -85,7 +87,6 @@ tourPlanner.controller('RoutesShowCtrl',
 
     function updateVisibleResources(resources, visibleTypes) {
       var filtered = resourcesFilter(resources, visibleTypes);
-      console.log(filtered.length);
       gMaps.setMarkers("resources", filtered);
     }
 
@@ -103,6 +104,5 @@ tourPlanner.controller('RoutesShowCtrl',
       var newParams = $.extend($location.search(), params);
       $location.search(newParams);
     }
-
   }
 ]);
