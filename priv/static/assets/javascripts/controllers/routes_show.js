@@ -35,7 +35,7 @@ tourPlanner.controller('RoutesShowCtrl',
       return url.search().types;
     }, function(types) {
       if (types) {
-        $scope.visibleTypes = url.typesUrlToForm(types);
+        $scope.visibleTypes = url.typesUrlToForm([].concat(types));
       }
     });
 
