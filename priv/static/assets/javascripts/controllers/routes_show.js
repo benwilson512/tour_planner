@@ -1,6 +1,6 @@
 tourPlanner.controller('RoutesShowCtrl',
-  ['$scope', 'embeddedData', 'googleMaps', 'urlService', 'resourcesService',
-  function RoutesShowCtrl($scope, embedded, gMaps, url, resourcesService) {
+  ['$scope', 'embeddedData', 'googleMaps', 'urlService', 'resourcesService', '$anchorScroll',
+  function RoutesShowCtrl($scope, embedded, gMaps, url, resourcesService, $anchorScroll) {
     window.scope = $scope;
 
     var route    = embedded.$get('route');
@@ -15,20 +15,7 @@ tourPlanner.controller('RoutesShowCtrl',
     $scope.visibleTypes = {};
 
     gMaps.getDirections(route);
-    var markers = gMaps.addLocations("steps", $.map(steps, function(step) {
-      return {
-        lat: step.start_lat,
-        lon: step.start_lon,
-        title: step.instructions
-      };
-    }));
-
-    $.each(markers, function(_, marker) {
-      google.maps.event.addListener(marker, 'click', function() {
-        $scope.focusStep(marker.index);
-        if(!$scope.$$phase) scope.$apply();
-      });
-    });
+    addSteps(steps);
 
 
     $scope.$watch(function() {
@@ -52,7 +39,25 @@ tourPlanner.controller('RoutesShowCtrl',
     });
 
     $scope.$watch('resources', function(resources) {
-      gMaps.setMarkers("resources", resourcesService.filter($scope.visibleTypes));
+      var filteredResources = resourcesService.filter($scope.visibleTypes);
+      var markers = gMaps.setMarkers("resources", filteredResources);
+      console.log(markers);
+      $.each(markers, function(_, marker) {
+        google.maps.event.addListener(marker, 'click', function() {
+          url.hash("resource-" + marker.data.id);
+          $anchorScroll();
+          if(!$scope.$$phase) scope.$apply();
+        });
+      });
+    });
+
+    $scope.$watch(function(){
+      return url.hash()
+    }, function(resourceTag) {
+      if(resourceTag.match("resource")) {
+        var id = parseInt(resourceTag.replace("resource-", ""));
+        $scope.focusedResourceId = id;
+      }
     });
 
     $scope.$watch('focusedStep', function(step) {
@@ -69,6 +74,23 @@ tourPlanner.controller('RoutesShowCtrl',
       $scope.stepIndex   = index;
       $scope.focusedStep = focusedStep;
       map.setCenter(new google.maps.LatLng(focusedStep.start_lat, focusedStep.start_lon));
+    }
+
+    function addSteps(steps) {
+      var markers = gMaps.addLocations("steps", $.map(steps, function(step) {
+        return {
+          lat: step.start_lat,
+          lon: step.start_lon,
+          title: step.instructions
+        };
+      }));
+
+      $.each(markers, function(_, marker) {
+        google.maps.event.addListener(marker, 'click', function() {
+          $scope.focusStep(marker.index);
+          if(!$scope.$$phase) scope.$apply();
+        });
+      });
     }
   }
 ]);

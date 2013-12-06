@@ -1,8 +1,8 @@
 tourPlanner.service('urlService', ['$location', function($location) {
-  function typesFormToUrl(hash) {
+  function typesFormToUrl(formHash) {
     var visible = [];
-    for (var a in hash) {
-      if (hash[a]) {
+    for (var a in formHash) {
+      if (formHash[a]) {
         visible.push(a)
       }
     }
@@ -10,11 +10,11 @@ tourPlanner.service('urlService', ['$location', function($location) {
   }
 
   function typesUrlToForm(searchResult) {
-    var hash = {};
+    var formHash = {};
     $.each(searchResult, function(_, type) {
-      hash[type] = true;
+      formHash[type] = true;
     });
-    return hash;
+    return formHash;
   }
 
   function addParams(params) {
@@ -29,10 +29,19 @@ tourPlanner.service('urlService', ['$location', function($location) {
       return $location.search();
     }
   }
+
+  function hash(params) {
+    if(params) {
+      return $location.hash(params);
+    } else {
+      return $location.hash();
+    }
+  }
   return {
     typesFormToUrl: typesFormToUrl,
     typesUrlToForm: typesUrlToForm,
     addParams:      addParams,
-    search:         search
+    search:         search,
+    hash:           hash
   }
 }]);

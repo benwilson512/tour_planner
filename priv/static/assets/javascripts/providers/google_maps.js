@@ -6,7 +6,7 @@ tourPlanner.service('googleMaps', function() {
     initialize: function(elementId, center) {
       var mapOptions = {
         center: center,
-        zoom: 8,
+        zoom: 12,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       map = new google.maps.Map(document.getElementById(elementId), mapOptions);
@@ -34,7 +34,7 @@ tourPlanner.service('googleMaps', function() {
     },
     setMarkers: function(label, markers) {
       this.clearMarkers(label);
-      this.addLocations(label, markers);
+      return this.addLocations(label, markers);
     },
     addMarkers: function(label, markers) {
       this.initLabel(label);
@@ -48,7 +48,7 @@ tourPlanner.service('googleMaps', function() {
           position: new google.maps.LatLng(point.lat, point.lon),
           map: map,
           title: point.title,
-          data: data,
+          data: point,
           index: i
         }));
       }
