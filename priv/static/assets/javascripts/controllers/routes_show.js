@@ -35,21 +35,40 @@ tourPlanner.controller('RoutesShowCtrl',
     $scope.$watchCollection('visibleTypes', function(formParams) {
       var params = url.typesFormToUrl(formParams);
       url.addParams(params);
-      gMaps.setMarkers("resources", resourcesService.filter($scope.visibleTypes));
+      setupResourceMarkers(
+        gMaps.setMarkers("resources", resourcesService.filter($scope.visibleTypes))
+      );
     });
 
     $scope.$watch('resources', function(resources) {
-      var filteredResources = resourcesService.filter($scope.visibleTypes);
-      var markers = gMaps.setMarkers("resources", filteredResources);
-      console.log(markers);
+      setupResourceMarkers(
+        gMaps.setMarkers("resources", resourcesService.filter($scope.visibleTypes))
+      );
+    });
+
+    function setupResourceMarkers(markers) {
+      var previousWindow;
       $.each(markers, function(_, marker) {
         google.maps.event.addListener(marker, 'click', function() {
           url.hash("resource-" + marker.data.id);
+
+          var infoWindow = new google.maps.InfoWindow({
+            content: marker.data.name,
+            size: new google.maps.Size(50,50)
+          });
+
+          if(previousWindow) {
+            previousWindow.close();
+          }
+
+          infoWindow.open(map, marker);
+          previousWindow = infoWindow;
+
           $anchorScroll();
           if(!$scope.$$phase) scope.$apply();
         });
       });
-    });
+    }
 
     $scope.$watch(function(){
       return url.hash()
@@ -74,6 +93,10 @@ tourPlanner.controller('RoutesShowCtrl',
       $scope.stepIndex   = index;
       $scope.focusedStep = focusedStep;
       map.setCenter(new google.maps.LatLng(focusedStep.start_lat, focusedStep.start_lon));
+    }
+
+    $scope.priceLevel = function(n) {
+      return Array(n + 1).join("$")
     }
 
     function addSteps(steps) {

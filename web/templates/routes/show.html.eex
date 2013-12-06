@@ -44,7 +44,9 @@
         <li ng-repeat="resource in resources | resources:visibleTypes"
             ng-class="{active:(resource.id == focusedResourceId)}">
           <p id="resource-{{resource.id}}">
-            <b>{{resource.name}}</b>:<br />{{resource.address}}
+            <b>{{resource.name}}</b>:<br />
+            {{resource.address}}<br />
+            {{priceLevel(resource.price_level)}} - Rating: {{resource.rating}}
           </p>
         </li>
       </ul>
