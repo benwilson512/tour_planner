@@ -38,16 +38,21 @@ tourPlanner.service('googleMaps', function() {
     },
     addMarkers: function(label, markers) {
       this.initLabel(label);
-      allMarkers[label] = allMarkers[label].concat(markers);;
+      return allMarkers[label] = allMarkers[label].concat(markers);;
     },
     addLocations: function(label, data) {
-      this.addMarkers(label, $.map(data, function(point) {
-        return new google.maps.Marker({
+      var markers = [];
+      for(var i = 0; i < data.length; i++) {
+        var point = data[i];
+        markers.push(new google.maps.Marker({
           position: new google.maps.LatLng(point.lat, point.lon),
           map: map,
-          title: point.title
-        });
-      }));
+          title: point.title,
+          data: data,
+          index: i
+        }));
+      }
+      return this.addMarkers(label, markers);
     },
     initLabel: function(label) {
       if(!allMarkers[label] || !allMarkers[label].length) {

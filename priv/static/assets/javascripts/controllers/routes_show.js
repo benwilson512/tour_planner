@@ -1,6 +1,7 @@
 tourPlanner.controller('RoutesShowCtrl',
   ['$scope', 'embeddedData', 'googleMaps', 'urlService', 'resourcesService',
   function RoutesShowCtrl($scope, embedded, gMaps, url, resourcesService) {
+    window.scope = $scope;
 
     var route    = embedded.$get('route');
     var steps    = embedded.$get('steps');
@@ -14,13 +15,21 @@ tourPlanner.controller('RoutesShowCtrl',
     $scope.visibleTypes = {};
 
     gMaps.getDirections(route);
-    gMaps.addLocations("steps", $.map(steps, function(step) {
+    var markers = gMaps.addLocations("steps", $.map(steps, function(step) {
       return {
         lat: step.start_lat,
         lon: step.start_lon,
         title: step.instructions
       };
     }));
+
+    $.each(markers, function(_, marker) {
+      google.maps.event.addListener(marker, 'click', function() {
+        $scope.focusStep(marker.index);
+        if(!$scope.$$phase) scope.$apply();
+      });
+    });
+
 
     $scope.$watch(function() {
       return url.search().types;
