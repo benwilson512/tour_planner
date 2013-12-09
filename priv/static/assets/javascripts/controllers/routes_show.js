@@ -49,7 +49,7 @@ tourPlanner.controller('RoutesShowCtrl',
     function setupResourceMarkers(markers) {
       var previousWindow;
       $.each(markers, function(_, marker) {
-        google.maps.event.addListener(marker, 'click', function() {
+        google.maps.event.addListener(marker, 'click', function(event) {
           url.hash("resource-" + marker.data.id);
 
           var infoWindow = new google.maps.InfoWindow({
@@ -64,7 +64,9 @@ tourPlanner.controller('RoutesShowCtrl',
           infoWindow.open(map, marker);
           previousWindow = infoWindow;
 
-          $anchorScroll();
+          if (!event.noScroll) {
+            $anchorScroll();
+          }
           if(!$scope.$$phase) scope.$apply();
         });
       });
@@ -75,7 +77,7 @@ tourPlanner.controller('RoutesShowCtrl',
     }, function(resourceTag) {
       if(resourceTag.match("resource")) {
         var id = parseInt(resourceTag.replace("resource-", ""));
-        $scope.focusedResourceId = id;
+        focusResource(id);
       }
     });
 
@@ -95,8 +97,21 @@ tourPlanner.controller('RoutesShowCtrl',
       map.setCenter(new google.maps.LatLng(focusedStep.start_lat, focusedStep.start_lon));
     }
 
+    $scope.focusResource = focusResource;
+    function focusResource(resourceID) {
+      url.hash("resource-" + resourceID);
+      $scope.focusedResourceId = resourceID;
+      var markers = gMaps.allMarkers["resources"];
+
+      $.each(markers, function(_, marker) {
+        if(resourceID == marker.data.id) {
+          google.maps.event.trigger(marker, 'click', {noScroll: true});
+        }
+      });
+    }
+
     $scope.priceLevel = function(n) {
-      return Array(n + 1).join("$")
+      return Array(n + 1).join("$");
     }
 
     function addSteps(steps) {

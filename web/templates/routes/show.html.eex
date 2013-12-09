@@ -40,12 +40,15 @@
 
     <div id="resource-list" class="side-thing"> 
       <h2>Resources</h2>
+      <form name="resourcesForm" novalidate>
+        <input type="text" ng-model="query"
+      </form>
       <ul>
-        <li ng-repeat="resource in resources | resources:visibleTypes"
+        <li ng-repeat="resource in resources | resources:visibleTypes | filter:query"
             ng-class="{active:(resource.id == focusedResourceId)}">
           <p id="resource-{{resource.id}}">
             <b>{{resource.name}}</b>:<br />
-            {{resource.address}}<br />
+            <a href ng-click="focusResource(resource.id)">{{resource.address}}</a><br />
             {{priceLevel(resource.price_level)}} - Rating: {{resource.rating}}
           </p>
         </li>
