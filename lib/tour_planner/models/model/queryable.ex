@@ -7,6 +7,10 @@ defmodule Model.Queryable do
         Repo.all(default_query)
       end
 
+      def where(clause) do
+        query("select * from #{__MODULE__.__model__(:source)} WHERE #{clause}")
+      end
+
       def first do
         Repo.all(from m in __MODULE__, order_by: [asc: m.id], limit: 1)
           |> Enum.first

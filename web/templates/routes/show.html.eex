@@ -40,7 +40,8 @@
 
     <div id="resource-list" class="side-thing"> 
       <h2>Resources</h2>
-      <form name="resourcesForm" novalidate>
+      <form novalidate>
+        <label>Search</label>
         <input type="text" ng-model="query"
       </form>
       <ul>
