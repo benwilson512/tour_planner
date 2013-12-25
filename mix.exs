@@ -18,11 +18,13 @@ defmodule TourPlanner.Mixfile do
   end
 
   defp deps do
-    [ { :cowboy, github: "extend/cowboy" },
-      { :dynamo, "0.1.0-dev", github: "elixir-lang/dynamo" },
+    [
+      { :exactor, "0.1", github: "sasa1977/exactor" },
+      { :cowboy, github: "extend/cowboy" },
+      { :dynamo, github: "elixir-lang/dynamo", branch: "master" },
       { :postgrex, github: "ericmj/postgrex", override: true},
       { :ecto, github: "elixir-lang/ecto", branch: "master" },
-      { :httpotion, github: "benwilson512/httpotion", branch: "master"},
+      { :httpotion, github: "myfreeweb/httpotion", branch: "master"},
       { :json,   github: "cblage/elixir-json"}
     ]
   end
