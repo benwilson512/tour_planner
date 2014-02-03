@@ -10,9 +10,17 @@ tourPlanner.service('resourcesService', ['$http', 'resourcesFilter',
     function filter(types) {
       return resourcesFilter(resources, types);
     }
+    function writeToGps(resources) {
+      console.log(resources)
+      var ids = $.map(resources, function(resource) {
+        return resource.id
+      });
+      $http.post('/api/v1/resources', ids)
+    }
     return {
       get:    get,
-      filter: filter
+      filter: filter,
+      writeToGps: writeToGps,
     }
   }
 ]);

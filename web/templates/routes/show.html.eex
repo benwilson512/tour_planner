@@ -1,3 +1,5 @@
+<script src="/static/assets/javascripts/controllers/routes_show.js"></script>
+
 <%= embed_data(:route, @route |> Route.to_json) %>
 <%= embed_data(:steps, @steps |> Step.to_json) %>
 <%= embed_data(:types, @types) %>
@@ -38,27 +40,27 @@
       </form>
     </div>
 
-    <div id="resource-list" class="side-thing"> 
+    <div id="resource-list" class="side-thing">
       <h2>Resources</h2>
       <form novalidate>
         <label>Search</label>
         <input type="text" ng-model="query"
       </form>
-      <ul>
-        <li ng-repeat="resource in resources | resources:visibleTypes | filter:query"
-            ng-class="{active:(resource.id == focusedResourceId)}">
-          <p id="resource-{{resource.id}}">
-            <b>{{resource.name}}</b>:<br />
-            <a href ng-click="focusResource(resource.id)">{{resource.address}}</a><br />
-            {{priceLevel(resource.price_level)}} - Rating: {{resource.rating}}
-          </p>
-        </li>
-      </ul>
+      <form>
+        <input type="submit" value="Download" ng-click="submit()">
+        <ul>
+          <li ng-repeat="resource in resources | resources:visibleTypes | filter:query"
+              ng-class="{active:(resource.id == focusedResourceId)}">
+            <input type="checkbox" name="resources[]" ng-model="resource.on_device" ng-checked="resource.on_device">
+            <label id="resource-{{resource.id}}">
+              <b>{{resource.name}}</b>:<br />
+              <a href ng-click="focusResource(resource.id)">{{resource.address}}</a><br />
+              {{priceLevel(resource.price_level)}} - Rating: {{resource.rating}}
+            </label>
+          </li>
+        </ul>
+      </form>
     </div>
 
   </div>
 </div>
-
-<% content_for :scripts do %>
-  <script src="/static/assets/javascripts/controllers/routes_show.js"></script>
-<% end %>

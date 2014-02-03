@@ -20,6 +20,7 @@ defmodule Step do
         join:   rs in ResourceStep, on: rs.step_id == s.id,
         join:   r  in Resource,     on: r.id == rs.resource_id,
         where:  s.id == ^step.id,
+        order:  r.id
         select: r
       )
     end

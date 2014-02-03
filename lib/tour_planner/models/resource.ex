@@ -11,6 +11,7 @@ defmodule Resource do
     field :price_level, :integer
     field :rating,      :float
     field :types,       :string
+    field :on_device,   :boolean
     field :created_at,  :datetime
     field :updated_at,  :datetime
 
@@ -39,14 +40,14 @@ defmodule Resource do
     header = """
       <?xml version="1.0" encoding="UTF-8" standalone="no"?>
       <gpx
-      xmlns="http://www.topografix.com/GPX/1/1"
-      xmlns:gpxx = "http://www.garmin.com/xmlschemas/GpxExtensions/v3"
-      xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd
-      http://www.garmin.com/xmlschemas/GpxExtensions/v3
-      http://www8.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd"
-      version="1.1"
-      creator="gpx-poi.com">
+        xmlns="http://www.topografix.com/GPX/1/1"
+        xmlns:gpxx = "http://www.garmin.com/xmlschemas/GpxExtensions/v3"
+        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd
+          http://www.garmin.com/xmlschemas/GpxExtensions/v3
+          http://www8.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd"
+        version="1.1"
+        creator="localhost:4000">
       """
 
     points = resources

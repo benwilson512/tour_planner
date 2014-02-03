@@ -110,6 +110,16 @@ tourPlanner.controller('RoutesShowCtrl',
       });
     }
 
+    $scope.submit = function() {
+      var selected = [];
+      $.each($scope.resources, function(_, resource) {
+        if(resource.on_device) {
+          selected.push(resource);
+        }
+      });
+      resourcesService.writeToGps(selected)
+    }
+
     $scope.priceLevel = function(n) {
       return Array(n + 1).join("$");
     }
