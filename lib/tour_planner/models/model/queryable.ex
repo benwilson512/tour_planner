@@ -1,7 +1,7 @@
 defmodule Model.Queryable do
-
   defmacro __using__(_opts) do
     quote do
+      import Model.Queryable
 
       def all do
         Repo.all(default_query)
