@@ -5,7 +5,8 @@
 <%= embed_data(:types, @types) %>
 
 <div id="canvas" ng-controller="RoutesShowCtrl">
-  <h1>{{route.start}} to {{route.finish}}</h1>
+  <h1 class="title">{{route.start}} - {{route.finish}}</h1>
+  <a ng-click="syncDevice()">Sync</a>
   <div id="map-canvas"></div>
   <div id="side-bar"></div>
 
@@ -47,7 +48,7 @@
         <input type="text" ng-model="query"
       </form>
       <form>
-        <input type="submit" value="Download" ng-click="submit()">
+        <input type="submit" value="Mark" ng-click="setOnDevice()">
         <ul>
           <li ng-repeat="resource in resources | resources:visibleTypes | filter:query"
               ng-class="{active:(resource.id == focusedResourceId)}">

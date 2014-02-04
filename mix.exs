@@ -19,7 +19,7 @@ defmodule TourPlanner.Mixfile do
 
   defp deps do
     [
-      { :exactor, "0.1", github: "sasa1977/exactor" },
+      { :exactor, github: "sasa1977/exactor" },
       { :cowboy, github: "extend/cowboy" },
       { :dynamo, github: "elixir-lang/dynamo", branch: "master" },
       { :postgrex, github: "ericmj/postgrex", override: true},

@@ -20,4 +20,10 @@ defmodule ApiV1ResourcesRouter do
     conn.status(200)
   end
 
+  post "/sync" do
+    Resource.all_waypoints
+      |> Edge810.write_waypoints
+    conn.status(200)
+  end
+
 end

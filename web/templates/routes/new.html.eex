@@ -2,6 +2,7 @@
 <form action="/routes/" method="POST">
 
   <fieldset>
+    <input type="hidden" name="route[mode]" value="bicycle">
     <legend>General Information</legend>
     <ol>
       <li>
@@ -13,7 +14,7 @@
         <input type="text" name="route[finish]">
       </li>
       <li>
-        <label>Waypoings (comma separated)</label>
+        <label>Waypoints (comma separated)</label>
         <input type="text" name="route[waypoints]">
       </li>
     </ol>

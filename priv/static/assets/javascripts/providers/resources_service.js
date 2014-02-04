@@ -17,10 +17,14 @@ tourPlanner.service('resourcesService', ['$http', 'resourcesFilter',
       });
       $http.post('/api/v1/resources', ids)
     }
+    function sync() {
+      $http.post('/api/v1/resources/sync')
+    }
     return {
       get:    get,
       filter: filter,
       writeToGps: writeToGps,
+      sync: sync
     }
   }
 ]);

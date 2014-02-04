@@ -110,7 +110,7 @@ tourPlanner.controller('RoutesShowCtrl',
       });
     }
 
-    $scope.submit = function() {
+    $scope.setOnDevice = function() {
       var selected = [];
       $.each($scope.resources, function(_, resource) {
         if(resource.on_device) {
@@ -118,6 +118,10 @@ tourPlanner.controller('RoutesShowCtrl',
         }
       });
       resourcesService.writeToGps(selected)
+    }
+
+    $scope.syncDevice = function() {
+      resourcesService.sync()
     }
 
     $scope.priceLevel = function(n) {
