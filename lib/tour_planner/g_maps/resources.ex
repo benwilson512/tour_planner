@@ -19,7 +19,7 @@ defmodule GMaps.Resources do
   end
 
   def create_or_link(resource, location) do
-    dup = Enum.first(resource.find_dups)
+    dup = List.first(resource.find_dups)
     resource = if dup do dup else resource |> Repo.create end
     ResourceStep.new(resource_id: resource.id, step_id: location.id)
       |> Repo.create

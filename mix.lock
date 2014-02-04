@@ -1,7 +1,7 @@
 [ "cowboy": {:git, "git://github.com/extend/cowboy.git", "b09f3a570d702be7a55c36e5f5b4b63b26198637", []},
   "cowlib": {:git, "git://github.com/extend/cowlib.git", "63298e8e160031a70efff86a1acde7e7db1fcda6", [ref: "0.4.0"]},
   "decimal": {:git, "git://github.com/ericmj/decimal.git", "33b52b6d8fec1e18245fbd7f1312a43103e25f5b", []},
-  "dynamo": {:git, "git://github.com/elixir-lang/dynamo.git", "5f45a150a914c86cf17f2b69c158ef5987884664", [branch: "master"]},
+  "dynamo": {:git, "git://github.com/dynamo/dynamo.git", "5f45a150a914c86cf17f2b69c158ef5987884664", [branch: "master"]},
   "ecto": {:git, "git://github.com/elixir-lang/ecto.git", "0e56d7bd68a0f1d2307976a565c464a7a01e6f62", [branch: "master"]},
   "exactor": {:git, "git://github.com/sasa1977/exactor.git", "6d93cc137a38eab016cc3b4f40ec781ecf0b6844", []},
   "httpotion": {:git, "git://github.com/myfreeweb/httpotion.git", "f9407c497ce8e71ebea8cf94d08b093f90afa5bb", [branch: "master"]},

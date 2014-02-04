@@ -21,9 +21,9 @@ defmodule TourPlanner.Mixfile do
     [
       { :exactor, github: "sasa1977/exactor" },
       { :cowboy, github: "extend/cowboy" },
-      { :dynamo, github: "elixir-lang/dynamo", branch: "master" },
+      { :dynamo, github: "dynamo/dynamo", branch: "master" },
       { :postgrex, github: "ericmj/postgrex", override: true},
-      { :ecto, github: "elixir-lang/ecto", branch: "master" },
+      { :ecto, github: "elixir-lang/ecto", branch: "master"},
       { :httpotion, github: "myfreeweb/httpotion", branch: "master"},
       { :json,   github: "cblage/elixir-json"}
     ]

@@ -13,16 +13,16 @@ defmodule Model.Queryable do
 
       def first do
         Repo.all(from m in __MODULE__, order_by: [asc: m.id], limit: 1)
-          |> Enum.first
+          |> List.first
       end
 
       def last do
         Repo.all(from m in __MODULE__, order_by: [desc: m.id], limit: 1)
-          |> Enum.first
+          |> List.first
       end
 
       def count do
-        [result] = Repo.all(from __MODULE__ |>  select([m], count(m.id)))
+        [result] = __MODULE__ |>  select([m], count(m.id)) |> Repo.all
         result
       end
 
