@@ -5,7 +5,8 @@
     "Ben Wilson <benwilson512@gmail.com>"
   ],
   "dependencies": {
-    "angular": "*"
+    "angular": "*",
+    "normalize-css": "*"
   },
   "description": "cycle tour app",
   "license": "MIT",
