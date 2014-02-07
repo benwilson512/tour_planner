@@ -1,0 +1,10 @@
+header#page_header {
+  background-color: transparentize(white, 0.15);
+  height: 70px;
+  position: absolute;
+  top: 0;
+  left: 100px;
+  width: 500px;
+  z-index: 1000;
+}
+

@@ -1,0 +1,63 @@
+// ----------------------------------------------------------------------------
+//  Typograhy
+// ----------------------------------------------------------------------------
+
+// FONTS
+// ----------------------------------------------------------------------------
+
+$gotham-narrow: 'Gotham Narrow A', 'Gotham Narrow B';
+//font-family: 'Gotham Narrow A', 'Gotham Narrow B'; // Book & Bold
+//font-weight: 400; // also 700
+//font-style: normal; // also italic in both 400 & 700
+
+$forza: 'Forza A', 'Forza B';
+//font-family: 'Forza A', 'Forza B'; // Regular & Bold
+//font-weight: 400; // also 700, 800
+//font-style: normal; // also italic in both 400, 700 & 800
+
+
+
+//  Font Stacks
+// ----------------------------------------------------------------------------
+
+$base-font-stack: $gotham-narrow, Avenir, Helvetica, arial, sans-serif;
+$font-monospaced: Monaco, "Liberation Mono", Courier, monospace;
+
+//  Type Sizing
+// ----------------------------------------------------------------------------
+
+$base-font-size: 1em;
+$base-line-height: $base-font-size * 1.4;
+
+//  MOAR Font Stacks
+// ----------------------------------------------------------------------------
+
+$body-stack: $base-font-stack;
+$alt-stack:  Helvetica, Arial, sans-serif;
+$legal-stack: Georgia, "Times New Roman", Times, serif;
+
+$tour-stack: $base-font-stack;
+$tour-stack-2: $forza, Avenir, Helvetica, arial, sans-serif;
+
+//  Headings
+// ----------------------------------------------------------------------------
+
+$headings-font-family: $forza;
+$headings-font-weight: 700; // instead of browser default, bold
+$headings-font-color: ''; // empty to use BS default, $textColor
+
+$sub-headings-font-family: $body-stack;
+$sub-headings-font-weight: 500; // instead of browser default, bold
+$sub-headings-font-color: ''; // empty to use BS default, $textColor
+
+//  Navigation
+// ----------------------------------------------------------------------------
+
+$nav-font-family: $body-stack;
+$nav-font-weight: 500; // instead of browser default, bold
+
+//  Body
+// ----------------------------------------------------------------------------
+
+$base-font-family: $body-stack;
+$alt-font-family: $alt-stack;

@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <html ng-app="tourPlanner">
   <head>
-    <link rel="stylesheet" type="text/css" href="/static/assets/stylesheets/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/static/assets/stylesheets/application.css">
     <link rel="stylesheet" type="text/css" href="/static/assets/bower/normalize-css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/672732/668364/css/fonts.css" />
 
     <script type="text/javascript" src="/static/assets/bower/jquery/jquery.js"></script>
     <script type="text/javascript" src="/static/assets/bower/angular/angular.js"></script>
@@ -13,33 +13,31 @@
     <script type="text/javascript" src="/static/assets/javascripts/providers/url_service.js"></script>
     <script type="text/javascript" src="/static/assets/javascripts/providers/resources_service.js"></script>
     <script type="text/javascript" src="/static/assets/javascripts/filters/filters.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAb2SNcoUwumA8tKyOd6dFInnuelCDUvYM&sensor=false"></script> 
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAb2SNcoUwumA8tKyOd6dFInnuelCDUvYM&sensor=false"></script>
 
     <title><%= content_for(:title) || @title || "Tour Planner" %></title>
   </head>
   <body>
     <!-- nav -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">Tour Planner</a>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="/routes">Routes</a></li>
-            <li><a href="/resources">Resources</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <header id="page_header" role="header">
+      <a class="navbar-brand" href="/">Tour Planner</a>
+      <nav id="main_nav" role="navigation">
+        <ul>
+          <li>
+            <a href="/routes" title="Routes">Routes</a>
+          </li>
+          <li>
+            <a href="/resources" title="Resources">Resources</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
     <!-- content -->
-    <div class="container">
+    <main id="main_content">
       <%= content_for(:template) %>
-    </div>
+    </main>
 
-    <div>
     <%= content_for(:scripts) %>
-    </div>
   </body>
 </html>

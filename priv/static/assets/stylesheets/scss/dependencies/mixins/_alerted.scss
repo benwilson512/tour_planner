@@ -1,0 +1,41 @@
+// Alerted Mixin
+// Part of https://github.com/dmtintner/UtilityBelt
+//
+// For all sorts of scenarios when you want to indicate to the user that they
+// need to take action. It creates a smooth, pulsing circle next to any element
+// that the mixin is applied to.
+
+@mixin alerted() {
+  &:before {
+    content: '';
+    position: absolute;
+    top: 6px; right: 6px;
+    height: 8px; width: 8px;
+    @include border-radius(10px);
+    background-color: gold;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    height: 20px; width: 20px;
+    @include border-radius(20px);
+    background-color: transparent;
+    border: solid gold;
+    border-width: 2px; // animates
+    @include box-sizing(border-box);
+    @include animation($name: alertMe);
+  }
+}
+
+@keyframes alertMe {
+  // -vendor prefixes omitted for brevity, but should be used in production
+  from {
+    border-width: 3px;
+    border-color: gold;
+  }
+  to {
+    border-width: 0;
+    border-color: rgba(gold, .1);
+  }
+}

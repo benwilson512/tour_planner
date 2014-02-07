@@ -1,0 +1,191 @@
+// ----------------------------------------------------------------------------
+// ALERTS
+// ----------------------------------------------------------------------------
+
+section.alerts {
+  clear: both;
+  color: $white;
+  margin-top: 61px;
+
+  h1 {
+    @extend %heading-5;
+  }
+}
+
+// ------------------------------------------------------------------
+//  Varibales
+// ------------------------------------------------------------------
+
+  $background-icon-size: 24px;
+
+// ------------------------------------------------------------------
+//  State Mixin Generator
+// ------------------------------------------------------------------
+
+@mixin alert-state($alert-background, $alert-border, $alert-color, $alert-box-background, $alert-box-border ) {
+  background-color: $alert-background;
+  border-color: $alert-border;
+  &.alert-block, &.alert-box{
+    background: $alert-box-background;
+    border-color: $alert-box-border;
+    color: $alert-color;
+    .alert-heading {
+      color: $alert-color;
+    } // .alert-heading
+  } // &.alert-box
+} // @mixin
+
+// ------------------------------------------------------------------
+//  State Variables
+// ------------------------------------------------------------------
+
+$alert-warning-background: $yellow;
+$alert-warning-border: darken(adjust-hue($alert-warning-background, -5), 3%) !default;
+$alert-warning-box-background: $warning-background;
+$alert-warning-box-border: darken(adjust-hue($alert-warning-box-background, -5), 5%) !default;
+$alert-warning-color: $warning-text;
+
+$alert-error-background: $red;
+$alert-error-border: darken(adjust-hue($alert-error-background, -5), 3%) !default;
+$alert-error-box-background: $error-background;
+$alert-error-box-border: darken(adjust-hue($alert-error-box-background, -5), 5%) !default;
+$alert-error-color: $error-text;
+
+$alert-success-background: $green;
+$alert-success-border: darken(adjust-hue($alert-success-background, -5), 3%) !default;
+$alert-success-box-background: $success-background;
+$alert-success-box-border: darken(adjust-hue($alert-success-box-background, -5), 5%) !default;
+$alert-success-color: $success-text;
+
+$alert-info-background: $dark-blue;
+$alert-info-border: darken(adjust-hue($alert-info-background, -5), 3%) !default;
+$alert-info-box-background: $info-background;
+$alert-info-box-border: darken(adjust-hue($alert-info-box-background, -5), 5%) !default;
+$alert-info-color: $info-text;
+
+// Base alert styles
+.alert {
+  background: $alert-warning-background url("alerts/alert.svg") no-repeat;
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  background-size: $background-icon-size $background-icon-size;
+  color: $white;
+  line-height: 18px;
+  margin: 0 0 $base-line-height 0;
+  padding: 0.75em 2.5em;
+  position: relative;
+  text-align: left;
+
+  &.full-width {
+    margin-bottom: 0;
+  }
+
+  .alert-heading {
+    color: $white;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
+    margin-bottom: 10px;
+  } // alert-heading
+  a, a:link {
+    color: $white !important;
+    text-decoration: underline;
+    &.btn {
+      color: $gray-darker  !important;
+    } // &.btn
+    @each $button-type in primary, warning, danger, error, notice, success, info, inverse {
+      &.btn-#{$button-type} {
+        color: $white !important;
+      }
+    }
+  } // a. a:link;
+
+  a.btn, button {
+    float: right;
+    padding: 1px 10px;
+  }
+  &.alert-box, &.alert-block {
+    background-color: $alert-warning-box-background;
+    border-color: $alert-warning-box-border;
+    color: $alert-warning-color;
+    padding: 8px 35px 8px 14px;
+    a.btn, button {
+      float: none;
+      padding: 4px 10px;
+    }
+    .close {
+      color: $gray-dark !important;
+    }
+    .alert-heading {
+      color: #C09853;
+      margin-bottom: 0;
+    }
+    p, ul {
+      margin-bottom: 0;
+    } // p, ul
+    p + p {
+      margin-top: 5px;
+    } // p + p
+  } // &.alert-box
+
+  // Adjust close link position
+  .close {
+    color: $white !important;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: $base-line-height;
+    opacity: .3;
+    position: absolute;
+    right: 14px;
+    text-decoration: none !important;
+    text-shadow: 0 1px 0 $white;
+    top: 5px;
+    &:hover {
+      color: $black;
+      cursor: pointer;
+      opacity: .5;
+      text-decoration: none;
+    } // &:hover
+  } // close
+
+  h1, p {
+    margin: 0.25em 0;
+    @include font-size(13px);
+  }
+
+// ------------------------------------------------------------------
+//  State Classes
+// ------------------------------------------------------------------
+
+  &.alert-danger,
+  &.alert-error {
+    @include alert-state($alert-error-background, $alert-error-border, $alert-error-color, $alert-error-box-background, $alert-error-box-border ) ;
+    @include background-image('alerts/x');
+    background-position: 10px 9px;
+    background-size: $background-icon-size $background-icon-size;
+  } // &.alert-danger, &.alert-error
+
+  &.alert-success {
+    @include alert-state($alert-success-background, $alert-success-border, $alert-success-color, $alert-success-box-background, $alert-success-box-border ) ;
+    @include background-image('alerts/check');
+    background-position: 10px 9px;
+    background-size: $background-icon-size $background-icon-size;
+  } // &.alert-success
+
+  &.alert-info,
+  &.alert-notice {
+    @include alert-state($alert-info-background, $alert-info-border, $alert-info-color, $alert-info-box-background, $alert-info-box-border ) ;
+    @include background-image('alerts/alert');
+    background-position: 10px 12px;
+    background-size: $background-icon-size $background-icon-size;
+  } // &.alert-info, &.alert-notice
+
+  &.alert-warning {
+    @include alert-state($alert-warning-background, $alert-warning-border, $alert-warning-color, $alert-warning-box-background, $alert-warning-box-border ) ;
+    @include background-image('alerts/alert');
+    background-position: 10px 12px;
+    background-size: $background-icon-size $background-icon-size;
+  } // &.alert-warning
+
+
+} // alert

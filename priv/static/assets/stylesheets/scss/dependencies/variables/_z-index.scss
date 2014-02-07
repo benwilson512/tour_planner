@@ -1,0 +1,33 @@
+// ----------------------------------------------------------------------------
+//  Z-Index
+// ----------------------------------------------------------------------------
+
+$z-index-base: 1000;
+
+$z-index-peek: $z-index-base + 1;
+$z-index-header: $z-index-base + 1;
+  $z-index-fixed-navbar: $z-index-header + 1;
+$z-index-sidebar: $z-index-base + 10;
+$z-index-primary: $z-index-base + 10;
+  $z-index-discussion: $z-index-primary + 1;
+  $z-index-discussion-sidebar: $z-index-primary + 1;
+$z-index-footer: $z-index-base + 1;
+
+// Menus & Popups
+// ----------------------------------------------------------------------------
+
+$z-index-popups: $z-index-base + 110; // Larger then Modals for Popups IN modals
+
+// Modals
+// ----------------------------------------------------------------------------
+
+$z-index-modal-hidden: $z-index-base - 100;
+$z-index-modal-visible: $z-index-base + 100;
+$z-index-modal-backdrop-hidden: $z-index-base - 90;
+$z-index-modal-backdrop-visible: $z-index-base + 90;
+
+// Loading
+// ----------------------------------------------------------------------------
+
+$z-index-loading-backdrop: $z-index-base + 200;
+$z-index-loading-backdrop-icon: $z-index-loading-backdrop + 201;

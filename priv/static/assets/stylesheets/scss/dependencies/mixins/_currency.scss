@@ -1,0 +1,25 @@
+// Currency Mixin
+// Part of https://github.com/dmtintner/UtilityBelt
+//
+// Usage
+//
+// <body class="USD">
+//     <span class="price">45</span>
+// </body>
+//
+// .price {
+//     @extend %currency;
+// }
+
+%currency {
+  position: relative;
+  &:before {
+    content: '$';
+    position: relative;
+    left: 0;
+  }
+}
+.USD %currency:before { content: '$'; }
+.EUR %currency:before { content: '\20AC'; } // must escape the html entities for each currency symbol
+.ILS %currency:before { content: '\20AA'; }
+.GBP %currency:before { content: '\00A3'; }

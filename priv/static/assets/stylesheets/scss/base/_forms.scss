@@ -1,0 +1,233 @@
+// ----------------------------------------------------------------------------
+// FORMS
+// ----------------------------------------------------------------------------
+
+// Local form-related silent extends (DRY)
+
+%error {
+  background-color: $light-red;
+  border: 2px solid $red;
+  color: $red;
+} // %error
+
+%field-basics {
+  background-color: $white;
+  border: 1px solid $gray-dark;
+  font-family: $tour-stack-2;
+  font-size: 1.125em; // 18px/16px
+  font-weight: normal;
+  line-height: $base-line-height;
+  padding: 0.5em; // 8px/16px
+}
+
+// Focus state
+%focus-state {
+  border-color: rgba(82,168,236,.8);
+  box-shadow: "inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)";
+  outline: 0;
+}
+
+
+// Global form setups
+// Put overrides in relevant files under assets/stylesheets/areas
+form {
+  margin: 0 0 $base-line-height;
+
+  ol {
+    @extend %list-in-disguise;
+    overflow: hidden;
+
+    li {
+      margin-bottom: $base-line-height * 2/3;
+      overflow: hidden;
+
+      &.inline {
+        float: left;
+        margin-right: 1em;
+
+        &.function {
+          padding-top: 1.5em;
+        }
+      } // &.inline
+    } // li
+  } // ol
+
+  label {
+    color: $gray-darker;
+    display: block;
+    font-family: $tour-stack-2;
+    font-size: 0.8125em; // 13px/16px
+    font-weight: 700;
+    line-height: $base-line-height;
+
+    &.error {
+      color: $red;
+    } // &.error
+  } // label
+
+  input {
+    @include input-placeholder {
+      color: $gray-light;
+    } // @include input-placeholder
+
+    @extend %field-basics;
+
+    &:focus {
+      @extend %focus-state;
+    }
+
+    &.error {
+      @extend %error;
+    } // &.error
+
+    &.name {
+      width: 350px;
+    }
+
+    &#claim_claim_contact_middle_initial,
+    &.mi {
+      width: 50px;
+    }
+
+    &.ssn {
+      width: 150px;
+    }
+
+    &.date {
+      width: 150px;
+    }
+
+    &.city {
+      width: 350px;
+    }
+
+    &.state {
+      width: 50px;
+    }
+    &.zip {
+      width: 100px;
+    }
+
+    // Specify styles for input based on type (globally)
+    // Use classes or IDs for singular overrides
+    &[type="text"] {}
+    &[type="tel"] {
+      width: 200px;
+    }
+    &[type="email"] {
+      width: 350px;
+    }
+    &[type="range"] {}
+    &[type="datetime"] {}
+    &[type="search"] {}
+
+    // Position radios and checkboxes better
+    &[type="radio"],
+    &[type="checkbox"] {
+      line-height: normal;
+      margin: 4px 6px 0 0;
+      cursor: pointer;
+    }
+
+    // Help out input buttons
+    &[type="button"],
+    &[type="reset"],
+    &[type="submit"] {
+      height: auto;
+      width: auto;
+    }
+
+  } // input
+
+
+  .form-actions {
+    background-color: $gray-lighter;
+    margin: 1em 0;
+    padding: 1em;
+
+    .button-primary {
+      float: right;
+    }
+
+    input,
+    a.button {
+      margin-top: 8px;
+
+      &.button-primary {
+        margin-top: 0;
+      }
+    }
+
+  } // .form-actions
+
+
+  select {
+    @extend %field-basics;
+
+    &:focus {
+      @extend %focus-state;
+    }
+
+    // Make multiple select elements height not fixed
+    &[multiple],
+    &[size] {
+      height: auto;
+    }
+
+  } // select
+
+  textarea {
+    @include input-placeholder {
+      color: $gray-light;
+    } // @include input-placeholder
+
+    @extend %field-basics;
+
+    &:focus {
+      @extend %focus-state;
+    }
+
+    &.error {
+      @extend %error;
+    } // &.error
+  } // textarea
+
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+    legend {
+      @extend %heading-2;
+    } // legend
+  } // fieldset
+
+  // Focus for select, file, radio, and checkbox
+  select:focus,
+  input[type="file"]:focus,
+  input[type="radio"]:focus,
+  input[type="checkbox"]:focus {
+    @extend %tab-focus;
+  }
+
+  // Reset the file input to browser defaults
+  input[type="file"] {
+    border: initial;
+    background-color: $white;
+    background-color: initial;
+    box-shadow: none;
+    line-height: initial;
+    padding: initial;
+  }
+
+} // form
+
+.inline-form {
+  float: left;
+  margin: 0.1em 0.5em;
+
+  input {
+    line-height: 0.8em;
+    padding: 0.3em;
+  }
+}

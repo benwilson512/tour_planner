@@ -1,0 +1,16 @@
+// ----------------------------------------------------------------------------
+//  Sizes
+// ----------------------------------------------------------------------------
+
+$base-border-radius: 6px;
+
+// Structure
+$page-width: 1024px - 30px; // Padding for 1024 Resolution = 15
+$header-height: 90px;
+$main-sidebar-width: 300px;
+$footer-height: 25px;
+$buffer-space: $header-height + $footer-height;
+
+//  Component Sizes
+$pill-height: 24px !default;
+$pill-height-sensor: ($pill-height * 2) !default;

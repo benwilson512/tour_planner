@@ -1,43 +1,61 @@
-html {
-    height: 100%;
-}
+/*
+Syntax error: File to import not found or unreadable: compass.
+              Load paths:
+                /Users/jathayde/Development/Meticulous/Clients/tour_planner (DEPRECATED)
+                /Users/jathayde/Development/Meticulous/Clients/tour_planner/priv/static/assets/stylesheets/scss
+        on line 4 of priv/static/assets/stylesheets/scss/application.scss
 
-body {
-  height: 100%;
-  margin-top: 50px;
-}
+1: // ----------------------------------------------------------------------------
+2: // New Application Framework for tour Twilight
+3: // ----------------------------------------------------------------------------
+4: @import "compass";
+5: 
+6: // Might need ☃
+7: // ----------------------------------------------------------------------------
+8: @charset "UTF-8";
+9: 
 
-#canvas {
-  height: 100%;
-}
-
-.container {
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
-
-
-#map-canvas {
-  height: 100%;
-  width:  40%;
-  display: inline;
-  float: left;
-}
-
-.side-thing {
-  background-color: #ffffff;
-  width: 20%;
-  height: 100%;
-  overflow-y: scroll;
-  display: inline;
-  float: right;
-}
-
-#side-bar {
-  width: 60%;
-}
-
-.active {
-  background-color: #ffff00;
-}
+Backtrace:
+priv/static/assets/stylesheets/scss/application.scss:4
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/import_node.rb:66:in `rescue in import'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/import_node.rb:45:in `import'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/import_node.rb:28:in `imported_file'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/import_node.rb:37:in `css_import?'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:282:in `visit_import'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/base.rb:36:in `visit'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:153:in `block in visit'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/stack.rb:79:in `block in with_base'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/stack.rb:115:in `with_frame'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/stack.rb:79:in `with_base'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:153:in `visit'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/base.rb:52:in `map'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit_children'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:174:in `with_environment'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:161:in `visit_children'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:181:in `visit_root'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/base.rb:36:in `visit'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:152:in `visit'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/root_node.rb:36:in `css_tree'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/root_node.rb:20:in `render'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/engine.rb:275:in `render'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/plugin/compiler.rb:347:in `update_stylesheet'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/plugin/compiler.rb:191:in `block in update_stylesheets'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/plugin/compiler.rb:188:in `each'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/plugin/compiler.rb:188:in `update_stylesheets'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/plugin/compiler.rb:276:in `block in watch'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/listen-1.1.6/lib/listen/listener.rb:236:in `call'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/listen-1.1.6/lib/listen/listener.rb:236:in `on_change'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/listen-1.1.6/lib/listen/listener.rb:271:in `block in initialize_adapter'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/listen-1.1.6/lib/listen/adapter.rb:244:in `call'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/listen-1.1.6/lib/listen/adapter.rb:244:in `report_changes'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/listen-1.1.6/lib/listen/adapter.rb:313:in `poll_changed_directories'
+/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/listen-1.1.6/lib/listen/adapter.rb:289:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: File to import not found or unreadable: compass.\A               Load paths:\A                 /Users/jathayde/Development/Meticulous/Clients/tour_planner (DEPRECATED)\A                 /Users/jathayde/Development/Meticulous/Clients/tour_planner/priv/static/assets/stylesheets/scss\A         on line 4 of priv/static/assets/stylesheets/scss/application.scss\A \A 1: // ----------------------------------------------------------------------------\A 2: // New Application Framework for tour Twilight\A 3: // ----------------------------------------------------------------------------\A 4: @import \"compass\";\A 5: \A 6: // Might need ☃\A 7: // ----------------------------------------------------------------------------\A 8: @charset \"UTF-8\";\A 9: "; }

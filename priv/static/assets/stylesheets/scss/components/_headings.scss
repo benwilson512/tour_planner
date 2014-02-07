@@ -1,0 +1,30 @@
+%heading-1 {
+  @include font-size(36px);
+  text-transform: capitalize;
+}
+
+%heading-2 {
+  @include font-size(17px);
+  font-family: $tour-stack-2;
+  text-transform: uppercase;
+}
+
+%heading-3 {
+  color: $gray-darker;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+
+%heading-4 {
+  @include font-size(13px);
+  font-family: $tour-stack-2;
+  text-transform: capitalize;
+}
+
+%heading-5 {
+  color: $gray;
+  font-family: $tour-stack-2;
+  font-size: 0.75em;
+  font-weight: normal;
+  text-transform: uppercase;
+}

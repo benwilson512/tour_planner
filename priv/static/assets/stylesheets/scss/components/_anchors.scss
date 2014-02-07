@@ -1,0 +1,36 @@
+a {
+  @include transition-property(color, text-decoration);
+  @include transition-duration(0.25s);
+  @include transition-timing-function(ease-in);
+
+  text-decoration: none;
+
+  &,
+  &:link {
+    color: $blue;
+  }
+
+  &:visited {
+    color: $gray-darker;
+  }
+
+  &:hover,
+  &:active {
+    color: $dark-blue;
+    text-decoration: underline;
+  }
+}
+
+a.button {
+
+  &,
+  &:link {
+    color: $white;
+  }
+
+  &:hover,
+  &:active {
+    color: $white;
+    text-decoration: none;
+  }
+}

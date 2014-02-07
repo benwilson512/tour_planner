@@ -1,0 +1,14 @@
+// Ghost Vertical Align
+// Part of https://github.com/dmtintner/UtilityBelt
+//
+// Used for aligning without a wrapper element
+// Modified version of http://css-tricks.com/centering-in-the-unknown/
+
+@mixin ghostVerticalAlign(){
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%; width: .1px;
+  }
+}

@@ -1,0 +1,101 @@
+// ----------------------------------------------------------------------------
+//  Non Semantic Helpers via @extend ... silently :shhh:
+// ----------------------------------------------------------------------------
+
+// For image replacement
+%image-replacement {
+  background-color: transparent;
+  color: transparent;
+  border: 0;
+  overflow: hidden;
+  text-indent: 100%;
+  text-shadow: none;
+  white-space: nowrap;
+
+  &:before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 0;
+  }
+
+} // %image-replacement
+
+// Hide for both screenreaders and browsers: h5bp.com/m
+%hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/n  & h5bp.com/o */
+%visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  // Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+
+  &.focusable {
+
+    &:active,
+    &:focus {
+       clip: auto;
+       height: auto;
+       margin: 0;
+       overflow: visible;
+       position: static;
+       width: auto;
+    } // &.a
+
+  } // &.focusable
+
+} // %visually-hidden
+
+// Hide visually and from screenreaders, but maintain layout
+%invisible {
+  visibility: hidden;
+}
+
+// Clearfix
+// --------
+// For clearing floats like a boss h5bp.com/q
+
+%clearfix {
+
+  &:after,
+  &:before {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+} // %clearfix
+
+// Webkit-style focus
+%tab-focus {
+  // Default
+  outline: thin dotted;
+  // Webkit
+  outline: 5px auto focus-ring-color;
+  outline-offset: -2px;
+}
+
+// Lists that don't look like lists
+%list-in-disguise {
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+} // %list-in-disguise

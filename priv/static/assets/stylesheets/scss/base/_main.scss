@@ -1,0 +1,60 @@
+// ----------------------------------------------------------------------------
+// MAIN
+// ----------------------------------------------------------------------------
+
+// apply a natural box layout model to all elements
+// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+%full-height {
+  float: none !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  position: relative;
+  @extend %clearfix;
+}
+
+html {
+  @extend %full-height;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @extend %full-height;
+
+  font-family: $tour-stack;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  min-width: 1500px;
+
+  header,
+  footer {
+  } // header, footer
+
+  main {
+    @extend %full-height;
+
+    margin: 0 auto;
+    text-align: left;
+  } // main
+} // body
+
+
+#canvas {
+  height: 100%;
+}
+
+.active {
+  background-color: #ffff00;
+}

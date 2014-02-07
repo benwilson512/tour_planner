@@ -1,0 +1,130 @@
+// ----------------------------------------------------------------------------
+// BUTTONS
+// ----------------------------------------------------------------------------
+//  Button Structure
+// ------------------------------------------------------------------
+
+button,
+.button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+//  background-image: url(asset-path("#{$image-path}/icons-colored/white/arrow-right.svg"));
+  background-position: calc(100% - 8px) center;
+  background-size: auto 15px;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: $base-border-radius;
+  background-color: $button-default-background;
+  box-shadow: none;
+  display: inline-block;
+  color: $white;
+  padding: ($base-line-height  / 4) 10px ($base-line-height  / 4) 10px;
+  outline: none;
+  font-family: $tour-stack-2;
+  font-size: 0.8125em;
+  font-weight: 500;
+  letter-spacing: .07rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color .25s linear, color .25s linear;
+
+  // Focus state for keyboard and accessibility
+  &:focus,
+  &:hover {
+    background-color: $button-default-background-hover;
+    color: $white;
+    box-shadow: none;
+  }
+
+  // Active state
+  &:active {
+    background-color: $button-default-background-active;
+    opacity: .8;
+  }
+
+  &:visited {
+    color: $white !important;
+  }
+
+  // Disabled state
+  &.disabled,
+  &[disabled] {
+    background-color: $gray;
+    background-image: none;
+    color: $gray-darker;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+} // button, .btn
+
+// Button Sizes (Use By @Extend)
+// ------------------------------------------------------------------
+
+%button-small {
+  &.button,
+  &.input[type="button"],
+  &.input[type="reset"],
+  &.input[type="submit"] {
+  background-position: calc(100% - 8px) center;
+  background-size: auto 10px;
+  padding: 2px 5px 0 7px;
+  font-size: $base-font-size / 1.5;
+  }
+}
+
+//  Button States (Color)
+// ------------------------------------------------------------------
+
+$button-color-list:
+  primary $button-primary-background $button-primary-background-hover $button-primary-background-active,
+  disabled $button-disabled-background $button-disabled-background-hover $button-disabled-background-active,
+  danger $button-danger-background $button-danger-background-hover $button-danger-background-active,
+  success $button-success-background $button-success-background-hover $button-success-background-active,
+  warning $button-warning-background $button-warning-background-hover $button-warning-background-active;
+
+@each $button-type, $background-color, $hover-color, $active-color in $button-color-list {
+
+  button.button-#{$button-type},
+  .button.button-#{$button-type},
+  input[type="button"].button-#{$button-type},
+  input[type="reset"].button-#{$button-type},
+  input[type="submit"].button-#{$button-type} {
+    background-color: $background-color;
+
+   &:focus,
+   &:hover {
+     background-color: $hover-color;
+   }
+
+   &:active {
+     background-color: $active-color;
+   }
+
+  } // .button-#{$button-type} {
+
+} // @each $button-type in $button-type-list {
+
+  .button-disabled {
+    color: $button-disabled-text;
+  }
+
+  .button-primary {
+    font-size: $base-font-size * 1.25 !important;
+  }
+
+//  Button Types (Icon)
+// ------------------------------------------------------------------
+
+//$button-type-list:
+//  add white plus,
+//  remove white x;
+//
+//@each $type, $color, $icon in $button-type-list {
+//
+//  .button-#{$type} {
+//    background-image: url(asset-path("#{$image-path}/icons-colored/#{$color}/#{$icon}.svg"));
+//   }
+//
+//} // @each $button-type in $button-type-list {
