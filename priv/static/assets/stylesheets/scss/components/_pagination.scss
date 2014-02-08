@@ -3,10 +3,9 @@
 // ----------------------------------------------------------------------------
 
 
-ul.pagination {
+p.pagination {
   @extend %list-in-disguise;
-  clear: both;
-
-  .current {}
+  text-align: center;
+  margin-bottom: 1em;
 
 } // ul.pagination

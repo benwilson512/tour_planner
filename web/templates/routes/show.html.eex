@@ -4,64 +4,63 @@
 <%= embed_data(:steps, @steps |> Step.to_json) %>
 <%= embed_data(:types, @types) %>
 
-<div id="canvas" ng-controller="RoutesShowCtrl">
-  <h1 class="title">{{route.start}} - {{route.finish}}</h1>
-  <a ng-click="syncDevice()">Sync</a>
-  <div id="map-canvas"></div>
-  <div id="side-bar"></div>
+<section id="sidebar" ng-controller="RoutesShowCtrl">
+  <h1 class="title">
+    {{route.start}} - {{route.finish}}
+  </h1>
+  <a ng-click="syncDevice()" class="button button-primary">Sync</a>
 
-    <div id="step-list" class="side-thing">
-      <h2>Waypoints</h2>
-      <p>
-        <a href ng-click="focusStep(stepIndex - 1)">Prev</a>
-        {{stepIndex}} of {{steps.length - 1}}
-        <a href ng-click="focusStep(stepIndex + 1)">Next</a>
-      </p>
-      <ul>
-        <li ng-repeat="step in steps" ng-class="{active:($index == stepIndex)}">
-          <a href ng-click="focusStep($index)">{{step.instructions}}</a>
-        </li>
-      </ul>
-    </div>
+  <section id="step-list" class="side-thing">
+    <h1>Waypoints</h1>
+    <p class="pagination">
+      <a href ng-click="focusStep(stepIndex - 1)" class="button">« Prev</a>
+      {{stepIndex}} of {{steps.length - 1}}
+      <a href ng-click="focusStep(stepIndex + 1)" class="button">Next »</a>
+    </p>
+    <ul>
+      <li class="step" ng-repeat="step in steps" ng-class="{active:($index == stepIndex)}">
+        <a href ng-click="focusStep($index)">{{step.instructions}}</a>
+      </li>
+    </ul>
+  </section>
 
-    <div id="types-list" class="side-thing">
-      <form name="filterForm" novalidate>
-        <fieldset>
-          <legend>Filters</legend>
-          <ul>
-            <li ng-repeat="type in types">
-              <label>
-                <input type="checkbox"
-                       ng-model="visibleTypes[type.stub]">
-                {{type.title}}
-              </label>
-            </li>
-          </ul>
-        </fieldset>
-      </form>
-    </div>
-
-    <div id="resource-list" class="side-thing">
-      <h2>Resources</h2>
-      <form novalidate>
-        <label>Search</label>
-        <input type="text" ng-model="query"
-      </form>
-      <form>
-        <input type="submit" value="Mark" ng-click="setOnDevice()">
+  <section id="types-list" class="side-thing">
+    <form name="filterForm" novalidate>
+      <fieldset>
+        <legend>Filters</legend>
         <ul>
-          <li ng-repeat="resource in resources | resources:visibleTypes | filter:query"
-              ng-class="{active:(resource.id == focusedResourceId)}">
-            <input type="checkbox" name="resources[]" ng-model="resource.on_device" ng-checked="resource.on_device">
-            <label id="resource-{{resource.id}}">
-              <b>{{resource.name}}</b>:<br />
-              <a href ng-click="focusResource(resource.id)">{{resource.address}}</a><br />
-              {{priceLevel(resource.price_level)}} - Rating: {{resource.rating}}
+          <li ng-repeat="type in types">
+            <label>
+              <input type="checkbox"
+                     ng-model="visibleTypes[type.stub]">
+              {{type.title}}
             </label>
           </li>
         </ul>
-      </form>
-    </div>
+      </fieldset>
+    </form>
+  </section>
 
-  </div>
-</div>
+  <section id="resource-list" class="side-thing">
+    <h1>Resources</h1>
+    <form novalidate>
+      <label>Search</label>
+      <input type="text" ng-model="query"
+    </form>
+    <form>
+      <input type="submit" value="Mark" ng-click="setOnDevice()">
+      <ul>
+        <li ng-repeat="resource in resources | resources:visibleTypes | filter:query"
+            ng-class="{active:(resource.id == focusedResourceId)}">
+          <input type="checkbox" name="resources[]" ng-model="resource.on_device" ng-checked="resource.on_device">
+          <label id="resource-{{resource.id}}">
+            <b>{{resource.name}}</b>:<br />
+            <a href ng-click="focusResource(resource.id)">{{resource.address}}</a><br />
+            {{priceLevel(resource.price_level)}} - Rating: {{resource.rating}}
+          </label>
+        </li>
+      </ul>
+    </form>
+  </section>
+</section>
+<div id="map-canvas"></div>
