@@ -1,5 +1,6 @@
 #side-bar {
   width: 300px;
+  z-index: 1000;
 }
 
 .side-thing {
@@ -9,4 +10,5 @@
   overflow-y: scroll;
   display: inline;
   float: right;
+  z-index: 1000;
 }

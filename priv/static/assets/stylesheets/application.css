@@ -1,61 +1,839 @@
-/*
-Syntax error: File to import not found or unreadable: compass.
-              Load paths:
-                /Users/jathayde/Development/Meticulous/Clients/tour_planner (DEPRECATED)
-                /Users/jathayde/Development/Meticulous/Clients/tour_planner/priv/static/assets/stylesheets/scss
-        on line 4 of priv/static/assets/stylesheets/scss/application.scss
+/* Included via HF&J stylesheet in layout */
+html:after, body:after, body main:after, html:before, body:before, body main:before {
+  content: " ";
+  display: table;
+}
+html:after, body:after, body main:after {
+  clear: both;
+}
 
-1: // ----------------------------------------------------------------------------
-2: // New Application Framework for tour Twilight
-3: // ----------------------------------------------------------------------------
-4: @import "compass";
-5: 
-6: // Might need ☃
-7: // ----------------------------------------------------------------------------
-8: @charset "UTF-8";
-9: 
+form select:focus,
+form input[type="file"]:focus,
+form input[type="radio"]:focus,
+form input[type="checkbox"]:focus {
+  outline: thin dotted;
+  outline: 5px auto focus-ring-color;
+  outline-offset: -2px;
+}
 
-Backtrace:
-priv/static/assets/stylesheets/scss/application.scss:4
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/import_node.rb:66:in `rescue in import'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/import_node.rb:45:in `import'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/import_node.rb:28:in `imported_file'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/import_node.rb:37:in `css_import?'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:282:in `visit_import'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:153:in `block in visit'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/stack.rb:79:in `block in with_base'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/stack.rb:115:in `with_frame'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/stack.rb:79:in `with_base'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:153:in `visit'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/base.rb:52:in `map'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit_children'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:174:in `with_environment'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:161:in `visit_children'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:181:in `visit_root'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:152:in `visit'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/root_node.rb:36:in `css_tree'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/tree/root_node.rb:20:in `render'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/engine.rb:275:in `render'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/plugin/compiler.rb:347:in `update_stylesheet'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/plugin/compiler.rb:191:in `block in update_stylesheets'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/plugin/compiler.rb:188:in `each'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/plugin/compiler.rb:188:in `update_stylesheets'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/sass-3.3.0.rc.2/lib/sass/plugin/compiler.rb:276:in `block in watch'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/listen-1.1.6/lib/listen/listener.rb:236:in `call'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/listen-1.1.6/lib/listen/listener.rb:236:in `on_change'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/listen-1.1.6/lib/listen/listener.rb:271:in `block in initialize_adapter'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/listen-1.1.6/lib/listen/adapter.rb:244:in `call'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/listen-1.1.6/lib/listen/adapter.rb:244:in `report_changes'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/listen-1.1.6/lib/listen/adapter.rb:313:in `poll_changed_directories'
-/opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/listen-1.1.6/lib/listen/adapter.rb:289:in `block in start_poller'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: File to import not found or unreadable: compass.\A               Load paths:\A                 /Users/jathayde/Development/Meticulous/Clients/tour_planner (DEPRECATED)\A                 /Users/jathayde/Development/Meticulous/Clients/tour_planner/priv/static/assets/stylesheets/scss\A         on line 4 of priv/static/assets/stylesheets/scss/application.scss\A \A 1: // ----------------------------------------------------------------------------\A 2: // New Application Framework for tour Twilight\A 3: // ----------------------------------------------------------------------------\A 4: @import \"compass\";\A 5: \A 6: // Might need ☃\A 7: // ----------------------------------------------------------------------------\A 8: @charset \"UTF-8\";\A 9: "; }
+form ol, header#page_header nav ul, ul.pagination {
+  margin: 0;
+  padding: 0;
+}
+form ol li, header#page_header nav ul li, ul.pagination li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@keyframes alertMe {
+  from {
+    border-width: 3px;
+    border-color: gold;
+  }
+
+  to {
+    border-width: 0;
+    border-color: rgba(255, 215, 0, 0.1);
+  }
+}
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links for images, or javascript/internal links
+   */
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+    /* h5bp.com/t */
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+button,
+.button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  background-position: calc(100% - 8px) center;
+  background-size: auto 15px;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 6px;
+  background-color: #b6b4b1;
+  box-shadow: none;
+  display: inline-block;
+  color: white;
+  padding: 0.35em 10px 0.35em 10px;
+  outline: none;
+  font-family: "Forza A", "Forza B", Avenir, Helvetica, arial, sans-serif;
+  font-size: 0.8125em;
+  font-weight: 500;
+  letter-spacing: .07rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color .25s linear, color .25s linear;
+}
+button:focus, button:hover,
+.button:focus,
+.button:hover,
+input[type="button"]:focus,
+input[type="button"]:hover,
+input[type="reset"]:focus,
+input[type="reset"]:hover,
+input[type="submit"]:focus,
+input[type="submit"]:hover {
+  background-color: #3482bf;
+  color: white;
+  box-shadow: none;
+}
+button:active,
+.button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+  background-color: #918e8a;
+  opacity: .8;
+}
+button:visited,
+.button:visited,
+input[type="button"]:visited,
+input[type="reset"]:visited,
+input[type="submit"]:visited {
+  color: white !important;
+}
+button.disabled, button[disabled],
+.button.disabled,
+.button[disabled],
+input[type="button"].disabled,
+input[type="button"][disabled],
+input[type="reset"].disabled,
+input[type="reset"][disabled],
+input[type="submit"].disabled,
+input[type="submit"][disabled] {
+  background-color: #c9c7c3;
+  background-image: none;
+  color: #666666;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+button.button-primary,
+.button.button-primary,
+input[type="button"].button-primary,
+input[type="reset"].button-primary,
+input[type="submit"].button-primary {
+  background-color: #295d85;
+}
+button.button-primary:focus, button.button-primary:hover,
+.button.button-primary:focus,
+.button.button-primary:hover,
+input[type="button"].button-primary:focus,
+input[type="button"].button-primary:hover,
+input[type="reset"].button-primary:focus,
+input[type="reset"].button-primary:hover,
+input[type="submit"].button-primary:focus,
+input[type="submit"].button-primary:hover {
+  background-color: #3578ac;
+}
+button.button-primary:active,
+.button.button-primary:active,
+input[type="button"].button-primary:active,
+input[type="reset"].button-primary:active,
+input[type="submit"].button-primary:active {
+  background-color: #17344b;
+}
+
+button.button-disabled,
+.button.button-disabled,
+input[type="button"].button-disabled,
+input[type="reset"].button-disabled,
+input[type="submit"].button-disabled {
+  background-color: #bdbcb9;
+}
+button.button-disabled:focus, button.button-disabled:hover,
+.button.button-disabled:focus,
+.button.button-disabled:hover,
+input[type="button"].button-disabled:focus,
+input[type="button"].button-disabled:hover,
+input[type="reset"].button-disabled:focus,
+input[type="reset"].button-disabled:hover,
+input[type="submit"].button-disabled:focus,
+input[type="submit"].button-disabled:hover {
+  background-color: #bdbcb9;
+}
+button.button-disabled:active,
+.button.button-disabled:active,
+input[type="button"].button-disabled:active,
+input[type="reset"].button-disabled:active,
+input[type="submit"].button-disabled:active {
+  background-color: #bdbcb9;
+}
+
+button.button-danger,
+.button.button-danger,
+input[type="button"].button-danger,
+input[type="reset"].button-danger,
+input[type="submit"].button-danger {
+  background-color: #c33939;
+}
+button.button-danger:focus, button.button-danger:hover,
+.button.button-danger:focus,
+.button.button-danger:hover,
+input[type="button"].button-danger:focus,
+input[type="button"].button-danger:hover,
+input[type="reset"].button-danger:focus,
+input[type="reset"].button-danger:hover,
+input[type="submit"].button-danger:focus,
+input[type="submit"].button-danger:hover {
+  background-color: #d05f5f;
+}
+button.button-danger:active,
+.button.button-danger:active,
+input[type="button"].button-danger:active,
+input[type="reset"].button-danger:active,
+input[type="submit"].button-danger:active {
+  background-color: #882828;
+}
+
+button.button-success,
+.button.button-success,
+input[type="button"].button-success,
+input[type="reset"].button-success,
+input[type="submit"].button-success {
+  background-color: #298529;
+}
+button.button-success:focus, button.button-success:hover,
+.button.button-success:focus,
+.button.button-success:hover,
+input[type="button"].button-success:focus,
+input[type="button"].button-success:hover,
+input[type="reset"].button-success:focus,
+input[type="reset"].button-success:hover,
+input[type="submit"].button-success:focus,
+input[type="submit"].button-success:hover {
+  background-color: #35ac35;
+}
+button.button-success:active,
+.button.button-success:active,
+input[type="button"].button-success:active,
+input[type="reset"].button-success:active,
+input[type="submit"].button-success:active {
+  background-color: #174b17;
+}
+
+button.button-warning,
+.button.button-warning,
+input[type="button"].button-warning,
+input[type="reset"].button-warning,
+input[type="submit"].button-warning {
+  background-color: #c39e39;
+}
+button.button-warning:focus, button.button-warning:hover,
+.button.button-warning:focus,
+.button.button-warning:hover,
+input[type="button"].button-warning:focus,
+input[type="button"].button-warning:hover,
+input[type="reset"].button-warning:focus,
+input[type="reset"].button-warning:hover,
+input[type="submit"].button-warning:focus,
+input[type="submit"].button-warning:hover {
+  background-color: #d0b25f;
+}
+button.button-warning:active,
+.button.button-warning:active,
+input[type="button"].button-warning:active,
+input[type="reset"].button-warning:active,
+input[type="submit"].button-warning:active {
+  background-color: #886e28;
+}
+
+.button-disabled {
+  color: #f1f1ef;
+}
+
+.button-primary {
+  font-size: 1.25em !important;
+}
+
+form input.error, form textarea.error {
+  background-color: white;
+  border: 2px solid #c33939;
+  color: #c33939;
+}
+
+form input, form select, form textarea {
+  background-color: white;
+  border: 1px solid #9d9b97;
+  font-family: "Forza A", "Forza B", Avenir, Helvetica, arial, sans-serif;
+  font-size: 1.125em;
+  font-weight: normal;
+  line-height: 1.4em;
+  padding: 0.5em;
+}
+
+form input:focus, form select:focus, form textarea:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  box-shadow: "inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)";
+  outline: 0;
+}
+
+form {
+  margin: 0 0 1.4em;
+}
+form ol {
+  overflow: hidden;
+}
+form ol li {
+  margin-bottom: 0.93333em;
+  overflow: hidden;
+}
+form ol li.inline {
+  float: left;
+  margin-right: 1em;
+}
+form ol li.inline.function {
+  padding-top: 1.5em;
+}
+form label {
+  color: #666666;
+  display: block;
+  font-family: "Forza A", "Forza B", Avenir, Helvetica, arial, sans-serif;
+  font-size: 0.8125em;
+  font-weight: 700;
+  line-height: 1.4em;
+}
+form label.error {
+  color: #c33939;
+}
+form input.placeholder {
+  color: #bdbcb9;
+}
+form input:-moz-placeholder {
+  color: #bdbcb9;
+}
+form input::-moz-placeholder {
+  color: #bdbcb9;
+}
+form input:-ms-input-placeholder {
+  color: #bdbcb9;
+}
+form input::-webkit-input-placeholder {
+  color: #bdbcb9;
+}
+form input.name {
+  width: 350px;
+}
+form input#claim_claim_contact_middle_initial, form input.mi {
+  width: 50px;
+}
+form input.ssn {
+  width: 150px;
+}
+form input.date {
+  width: 150px;
+}
+form input.city {
+  width: 350px;
+}
+form input.state {
+  width: 50px;
+}
+form input.zip {
+  width: 100px;
+}
+form input[type="tel"] {
+  width: 200px;
+}
+form input[type="email"] {
+  width: 350px;
+}
+form input[type="radio"], form input[type="checkbox"] {
+  line-height: normal;
+  margin: 4px 6px 0 0;
+  cursor: pointer;
+}
+form input[type="button"], form input[type="reset"], form input[type="submit"] {
+  height: auto;
+  width: auto;
+}
+form .form-actions {
+  background-color: #f1f1ef;
+  margin: 1em 0;
+  padding: 1em;
+}
+form .form-actions .button-primary {
+  float: right;
+}
+form .form-actions input,
+form .form-actions a.button {
+  margin-top: 8px;
+}
+form .form-actions input.button-primary,
+form .form-actions a.button.button-primary {
+  margin-top: 0;
+}
+form select[multiple], form select[size] {
+  height: auto;
+}
+form textarea.placeholder {
+  color: #bdbcb9;
+}
+form textarea:-moz-placeholder {
+  color: #bdbcb9;
+}
+form textarea::-moz-placeholder {
+  color: #bdbcb9;
+}
+form textarea:-ms-input-placeholder {
+  color: #bdbcb9;
+}
+form textarea::-webkit-input-placeholder {
+  color: #bdbcb9;
+}
+form fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+form input[type="file"] {
+  border: initial;
+  background-color: white;
+  background-color: initial;
+  box-shadow: none;
+  line-height: initial;
+  padding: initial;
+}
+
+.inline-form {
+  float: left;
+  margin: 0.1em 0.5em;
+}
+.inline-form input {
+  line-height: 0.8em;
+  padding: 0.3em;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body, body main {
+  float: none !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  position: relative;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Gotham Narrow A", "Gotham Narrow B", Avenir, Helvetica, arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.4em;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  min-width: 1500px;
+}
+body main {
+  margin: 0 auto;
+  text-align: left;
+}
+
+#canvas {
+  height: 100%;
+}
+
+.active {
+  background-color: #ffff00;
+}
+
+header#page_header {
+  background-color: rgba(255, 255, 255, 0.85);
+  height: 70px;
+  position: absolute;
+  top: 0;
+  left: 100px;
+  padding: 0 0.5em 0.5em 0.5em;
+  text-align: left;
+  width: 700px;
+  z-index: 1000;
+}
+header#page_header h1 {
+  font-family: "Forza A", "Forza B", Avenir, Helvetica, arial, sans-serif;
+  font-size: 48px;
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: 800;
+  margin-top: 25px;
+  text-shadow: 3px 3px 0 #9d9b97;
+}
+header#page_header h1 a.logo {
+  color: rgba(195, 57, 57, 0.7);
+}
+header#page_header nav {
+  float: right;
+}
+header#page_header nav ul {
+  margin: 0;
+  padding: 0;
+}
+header#page_header nav ul li {
+  float: left;
+  height: 60px;
+  margin: 0;
+  padding: 20px 15px;
+  width: 60px;
+}
+header#page_header nav ul li a {
+  height: 50px;
+  width: 50px;
+}
+
+section.alerts {
+  clear: both;
+  color: white;
+  margin-top: 61px;
+}
+
+.alert {
+  background: #c39e39 url("alerts/alert.svg") no-repeat;
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  color: white;
+  line-height: 18px;
+  margin: 0 0 1.4em 0;
+  padding: 0.75em 2.5em;
+  position: relative;
+  text-align: left;
+}
+.alert.full-width {
+  margin-bottom: 0;
+}
+.alert .alert-heading {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+.alert a, .alert a:link {
+  color: white !important;
+  text-decoration: underline;
+}
+.alert a.btn, .alert a:link.btn {
+  color: #666666 !important;
+}
+.alert a.btn-primary, .alert a:link.btn-primary {
+  color: white !important;
+}
+.alert a.btn-warning, .alert a:link.btn-warning {
+  color: white !important;
+}
+.alert a.btn-danger, .alert a:link.btn-danger {
+  color: white !important;
+}
+.alert a.btn-error, .alert a:link.btn-error {
+  color: white !important;
+}
+.alert a.btn-notice, .alert a:link.btn-notice {
+  color: white !important;
+}
+.alert a.btn-success, .alert a:link.btn-success {
+  color: white !important;
+}
+.alert a.btn-info, .alert a:link.btn-info {
+  color: white !important;
+}
+.alert a.btn-inverse, .alert a:link.btn-inverse {
+  color: white !important;
+}
+.alert a.btn, .alert button {
+  float: right;
+  padding: 1px 10px;
+}
+.alert.alert-box, .alert.alert-block {
+  background-color: #fcf8e3;
+  border-color: #faeecc;
+  color: #c09853;
+  padding: 8px 35px 8px 14px;
+}
+.alert.alert-box a.btn, .alert.alert-box button, .alert.alert-block a.btn, .alert.alert-block button {
+  float: none;
+  padding: 4px 10px;
+}
+.alert.alert-box .close, .alert.alert-block .close {
+  color: #9d9b97 !important;
+}
+.alert.alert-box .alert-heading, .alert.alert-block .alert-heading {
+  color: #C09853;
+  margin-bottom: 0;
+}
+.alert.alert-box p, .alert.alert-box ul, .alert.alert-block p, .alert.alert-block ul {
+  margin-bottom: 0;
+}
+.alert.alert-box p + p, .alert.alert-block p + p {
+  margin-top: 5px;
+}
+.alert .close {
+  color: white !important;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.4em;
+  opacity: .3;
+  position: absolute;
+  right: 14px;
+  text-decoration: none !important;
+  text-shadow: 0 1px 0 white;
+  top: 5px;
+}
+.alert .close:hover {
+  color: black;
+  cursor: pointer;
+  opacity: .5;
+  text-decoration: none;
+}
+.alert h1, .alert p {
+  margin: 0.25em 0;
+  font-size: 13px;
+  font-size: 0.8125rem;
+}
+.alert.alert-danger, .alert.alert-error {
+  background-color: #c33939;
+  border-color: #b73640;
+  background-image: url("../images/alerts/x.svg");
+  background-position: 10px 9px;
+  background-size: 24px 24px;
+}
+.alert.alert-danger.alert-block, .alert.alert-danger.alert-box, .alert.alert-error.alert-block, .alert.alert-error.alert-box {
+  background: #f2dede;
+  border-color: #ebccce;
+  color: #b94a48;
+}
+.alert.alert-danger.alert-block .alert-heading, .alert.alert-danger.alert-box .alert-heading, .alert.alert-error.alert-block .alert-heading, .alert.alert-error.alert-box .alert-heading {
+  color: #b94a48;
+}
+.no-svg .alert.alert-danger, .no-svg .alert.alert-error {
+  background-image: url("../images/alerts/x.png");
+}
+@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+  .no-svg .alert.alert-danger, .no-svg .alert.alert-error {
+    background-image: url("../images/alerts/x@2x.png");
+  }
+}
+.alert.alert-success {
+  background-color: #298529;
+  border-color: #2c7925;
+  background-image: url("../images/alerts/check.svg");
+  background-position: 10px 9px;
+  background-size: 24px 24px;
+}
+.alert.alert-success.alert-block, .alert.alert-success.alert-box {
+  background: #d4e6d4;
+  border-color: #c6ddc4;
+  color: #298529;
+}
+.alert.alert-success.alert-block .alert-heading, .alert.alert-success.alert-box .alert-heading {
+  color: #298529;
+}
+.no-svg .alert.alert-success {
+  background-image: url("../images/alerts/check.png");
+}
+@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+  .no-svg .alert.alert-success {
+    background-image: url("../images/alerts/check@2x.png");
+  }
+}
+.alert.alert-info, .alert.alert-notice {
+  background-color: #295d85;
+  border-color: #255c79;
+  background-image: url("../images/alerts/alert.svg");
+  background-position: 10px 12px;
+  background-size: 24px 24px;
+}
+.alert.alert-info.alert-block, .alert.alert-info.alert-box, .alert.alert-notice.alert-block, .alert.alert-notice.alert-box {
+  background: #d9edf7;
+  border-color: #c4e7f3;
+  color: #3a87ad;
+}
+.alert.alert-info.alert-block .alert-heading, .alert.alert-info.alert-box .alert-heading, .alert.alert-notice.alert-block .alert-heading, .alert.alert-notice.alert-box .alert-heading {
+  color: #3a87ad;
+}
+.no-svg .alert.alert-info, .no-svg .alert.alert-notice {
+  background-image: url("../images/alerts/alert.png");
+}
+@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+  .no-svg .alert.alert-info, .no-svg .alert.alert-notice {
+    background-image: url("../images/alerts/alert@2x.png");
+  }
+}
+.alert.alert-warning {
+  background-color: #c39e39;
+  border-color: #b78a36;
+  background-image: url("../images/alerts/alert.svg");
+  background-position: 10px 12px;
+  background-size: 24px 24px;
+}
+.alert.alert-warning.alert-block, .alert.alert-warning.alert-box {
+  background: #fcf8e3;
+  border-color: #faeecc;
+  color: #c09853;
+}
+.alert.alert-warning.alert-block .alert-heading, .alert.alert-warning.alert-box .alert-heading {
+  color: #c09853;
+}
+.no-svg .alert.alert-warning {
+  background-image: url("../images/alerts/alert.png");
+}
+@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+  .no-svg .alert.alert-warning {
+    background-image: url("../images/alerts/alert@2x.png");
+  }
+}
+
+a {
+  -moz-transition-property: color, text-decoration;
+  -o-transition-property: color, text-decoration;
+  -webkit-transition-property: color, text-decoration;
+  transition-property: color, text-decoration;
+  -moz-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  text-decoration: none;
+}
+a, a:link {
+  color: #3482bf;
+}
+a:visited {
+  color: #666666;
+}
+a:hover, a:active {
+  color: #295d85;
+  text-decoration: underline;
+}
+
+a.button, a.button:link {
+  color: white;
+}
+a.button:hover, a.button:active {
+  color: white;
+  text-decoration: none;
+}
+
+form fieldset legend {
+  font-size: 17px;
+  font-size: 1.0625rem;
+  font-family: "Forza A", "Forza B", Avenir, Helvetica, arial, sans-serif;
+  text-transform: uppercase;
+}
+
+section.alerts h1 {
+  color: #c9c7c3;
+  font-family: "Forza A", "Forza B", Avenir, Helvetica, arial, sans-serif;
+  font-size: 0.75em;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+ul.pagination {
+  clear: both;
+}
+
+#claim_divider {
+  background-color: #c9c7c3;
+  border: 0;
+  height: 3px;
+  margin: 0;
+  width: 100%;
+}
+
+#map-canvas {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+}
+
+#side-bar {
+  width: 300px;
+  z-index: 1000;
+}
+
+.side-thing {
+  background-color: #ffffff;
+  width: 100%%;
+  height: 100%;
+  overflow-y: scroll;
+  display: inline;
+  float: right;
+  z-index: 1000;
+}

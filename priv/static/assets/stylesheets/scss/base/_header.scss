@@ -4,7 +4,45 @@ header#page_header {
   position: absolute;
   top: 0;
   left: 100px;
-  width: 500px;
+  padding: 0 0.5em 0.5em 0.5em;
+  text-align: left;
+  width: 700px;
   z-index: 1000;
-}
+
+  h1 {
+    font-family: $tour-stack-2;
+    @include font-size(48px);
+    font-style: italic;
+    font-weight: 800;
+    margin-top: 25px;
+    text-shadow: 3px 3px 0 $gray-dark;
+
+    a.logo {
+      color: transparentize($red, 0.3);
+    }
+  }
+
+  nav {
+    float: right;
+
+    ul {
+      @extend %list-in-disguise;
+      margin: 0;
+      padding: 0;
+
+      li {
+        float: left;
+        height: 60px;
+        margin: 0;
+        padding: 20px 15px;
+        width: 60px;
+
+        a {
+          height: 50px;
+          width: 50px;
+        }
+      } // li
+    } // ul
+  } // nav
+} // header#page_header
 

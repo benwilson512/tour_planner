@@ -20,17 +20,23 @@
   <body>
     <!-- nav -->
     <header id="page_header" role="header">
-      <a class="navbar-brand" href="/">Tour Planner</a>
       <nav id="main_nav" role="navigation">
         <ul>
           <li>
-            <a href="/routes" title="Routes">Routes</a>
+            <a id="routes" href="/routes" title="Routes">
+              <img src="/static/assets/images/routes.svg">
+            </a>
           </li>
           <li>
-            <a href="/resources" title="Resources">Resources</a>
+            <a id="resources" href="/resources" title="Resources">
+              <img src="/static/assets/images/resources.svg">
+            </a>
           </li>
         </ul>
       </nav>
+      <h1>
+        <a class="logo" href="/">Tour Planner</a>
+      </h1>
     </header>
 
     <!-- content -->
